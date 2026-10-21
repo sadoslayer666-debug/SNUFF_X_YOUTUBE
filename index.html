@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090909">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>SHORTVERSE Hybrid App</title>
+<style>
+:root{--bg:#080808;--panel:#111214;--panel2:#191a1d;--line:#292b30;--text:#f6f6f7;--muted:#a4a5ad;--red:#ff1744;--red2:#d9002f;--white:#fff;--shadow:0 18px 55px #0008}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}body{background:radial-gradient(ellipse at 70% -20%,#4b0718 0,transparent 35%),var(--bg)}button,input,select,textarea{font:inherit}button{cursor:pointer;color:inherit}.app{min-height:100vh;display:grid;grid-template-columns:250px minmax(0,1fr)}.sidebar{border-right:1px solid var(--line);padding:22px 14px;display:flex;flex-direction:column;gap:22px;background:#090909eF;position:sticky;top:0;height:100vh}.brand{display:flex;align-items:center;gap:10px;padding:0 10px}.brandmark{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,#ff1744,#9d0024);display:grid;place-items:center;box-shadow:0 0 25px #ff17443d}.brandmark svg{width:22px}.brandname{font-weight:900;letter-spacing:.6px;font-size:18px}.brandname span{color:var(--red)}.subbrand{font-size:10px;color:var(--muted);letter-spacing:1.7px;margin-top:3px}.navlabel{font-size:10px;color:#747680;font-weight:800;letter-spacing:1.5px;padding:0 12px;margin:4px 0}.nav{display:grid;gap:5px}.nav button{border:1px solid transparent;background:transparent;padding:12px;border-radius:12px;text-align:left;display:flex;align-items:center;gap:12px;color:#c3c4cb;font-weight:650}.nav button svg{width:19px;height:19px;flex-shrink:0}.nav button:hover{background:#ffffff0a}.nav button.active{background:linear-gradient(90deg,#ff174429,#ff17440b);border-color:#ff17444a;color:#fff}.nav button.active svg{color:var(--red)}.sidebottom{margin-top:auto;display:grid;gap:8px}.mini-row{display:flex;align-items:center;justify-content:space-between;color:var(--muted);font-size:12px;padding:7px 10px}.mini-row select{background:#191a1d;color:#fff;border:1px solid var(--line);border-radius:8px;padding:5px}.main{min-width:0}.topbar{height:76px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 30px;gap:18px;background:#090909b8;backdrop-filter:blur(18px);position:sticky;top:0;z-index:5}.mobile-brand{display:none}.search{max-width:600px;flex:1;display:flex;align-items:center;gap:10px;background:#151619;border:1px solid #303137;border-radius:13px;padding:0 14px;height:44px}.search svg{width:18px;color:#858791;flex-shrink:0}.search input{background:transparent;border:0;outline:0;color:#fff;width:100%;min-width:0}.search button{border:0;background:var(--red);border-radius:9px;padding:7px 12px;font-weight:750}.topactions{display:flex;align-items:center;gap:10px}.iconbtn{height:40px;width:40px;border-radius:12px;background:#151619;border:1px solid var(--line);display:grid;place-items:center}.iconbtn svg{width:18px}.avatar{width:38px;height:38px;border-radius:50%;background:#27272c;border:1px solid #4a4b51;display:grid;place-items:center;font-weight:800}.content{max-width:1600px;margin:auto;padding:28px 30px 90px}.hero{border:1px solid #46202a;background:linear-gradient(115deg,#230811,#111114 58%,#171719);border-radius:24px;padding:28px;display:flex;justify-content:space-between;align-items:center;gap:20px;overflow:hidden;position:relative}.hero:after{content:"";position:absolute;width:280px;height:280px;border:1px solid #ff174422;border-radius:50%;right:10%;top:-140px;box-shadow:0 0 0 35px #ff17440a,0 0 0 70px #ff174406;pointer-events:none}.eyebrow{color:#ff718a;text-transform:uppercase;font-size:11px;letter-spacing:2px;font-weight:850}.hero h1{font-size:clamp(25px,3vw,39px);line-height:1.12;margin:10px 0}.hero p{color:#b7b4ba;max-width:620px;line-height:1.7;margin:0}.hero-art{width:105px;height:105px;flex-shrink:0;border-radius:28px;background:linear-gradient(145deg,#ff1744,#85001f);display:grid;place-items:center;box-shadow:0 10px 45px #ff174433;transform:rotate(5deg)}.hero-art svg{width:48px;height:48px}.sectionhead{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:30px 0 16px}.sectionhead h2{margin:0;font-size:21px}.sectionhead p{color:var(--muted);font-size:13px;margin:6px 0 0}.platforms{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.platform{border:1px solid var(--line);border-radius:20px;background:linear-gradient(145deg,#17181b,#0e0f11);padding:22px;display:flex;gap:16px;align-items:center;min-width:0;transition:.2s;cursor:pointer;text-align:left}.platform:hover{transform:translateY(-2px);border-color:#6b303b}.platform.selected{border-color:var(--red);box-shadow:inset 0 0 0 1px #ff17443a,0 10px 30px #ff17440b}.platform-icon{width:58px;height:58px;border-radius:17px;display:grid;place-items:center;flex-shrink:0;background:#ff17441c;color:var(--red)}.platform.tiktok .platform-icon{background:#fff;color:#080808}.platform-icon svg{width:29px;height:29px}.platform h3{margin:0 0 6px;font-size:17px}.platform p{margin:0;color:var(--muted);font-size:12px;line-height:1.5}.platform .chevron{margin-left:auto;color:#888}.pill{font-size:10px;padding:5px 8px;border-radius:99px;background:#292a2e;color:#bfc0c7;display:inline-flex;margin-top:10px}.pill.red{background:#ff17441b;color:#ff718a}.pill.green{background:#29d39122;color:#29d391}.modebar{display:flex;gap:8px;flex-wrap:wrap}.modebtn{border:1px solid var(--line);background:#141518;border-radius:11px;padding:10px 15px;color:#c5c6cc;font-weight:750;display:flex;align-items:center;gap:9px}.modebtn.active{background:var(--red);border-color:var(--red);color:white;box-shadow:0 6px 20px #ff174426}.modebtn svg{width:18px;height:18px}.feed-layout{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(250px,.8fr);gap:18px}.panel{border:1px solid var(--line);background:#111214;border-radius:18px;padding:20px;min-width:0}.panel h3{margin:0 0 8px;font-size:16px}.muted{color:var(--muted)}.viewer{min-height:380px;border-radius:16px;background:linear-gradient(160deg,#171719,#09090a);border:1px dashed #3a3b41;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:28px;gap:12px}.viewer-icon{width:64px;height:64px;border-radius:20px;background:#ff17441c;color:var(--red);display:grid;place-items:center}.viewer-icon svg{width:30px;height:30px}.viewer h3{font-size:18px;margin:4px 0}.viewer p{color:var(--muted);font-size:13px;line-height:1.7;max-width:420px;margin:0}.btn{border:0;background:var(--red);padding:11px 16px;border-radius:11px;color:white;font-weight:800;display:inline-flex;align-items:center;justify-content:center;gap:8px}.btn:hover{background:#e90032}.btn.secondary{background:#202125;border:1px solid #383940;color:#fff}.btn.ghost{background:transparent;border:1px solid var(--line);color:#ddd}.field{display:grid;gap:7px;margin:14px 0}.field label{font-size:12px;color:#c7c8ce;font-weight:700}.field input,.field select,.field textarea{width:100%;border:1px solid #34353b;background:#090a0c;border-radius:10px;padding:12px;color:#fff;outline:none}.field input:focus,.field textarea:focus{border-color:var(--red)}.field small{color:var(--muted);line-height:1.6}.status{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);margin:12px 0}.dot{width:7px;height:7px;background:#e7a73d;border-radius:50%;display:inline-block}.dot.green{background:#29d391}.page{display:none}.page.active{display:block}.emptylist{border:1px dashed #36373c;border-radius:14px;padding:24px;text-align:center;color:var(--muted);font-size:13px;line-height:1.7}.settingrow{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 0;border-bottom:1px solid var(--line)}.settingrow:last-child{border-bottom:0}.settingrow strong{display:block;font-size:14px}.settingrow small{display:block;color:var(--muted);font-size:12px;margin-top:5px}.notice{border:1px solid #765622;background:#332710;color:#f4d79c;padding:13px;border-radius:12px;font-size:12px;line-height:1.65}.notice.rednotice{border-color:#672536;background:#2b1018;color:#ffb2c0}.notice.greennotice{border-color:#1c5238;background:#0b261a;color:#a3f3ca}.rowwrap{display:flex;gap:10px;flex-wrap:wrap}.bottomnav{display:none}.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:#242529;border:1px solid #46474d;border-radius:12px;padding:12px 16px;box-shadow:var(--shadow);font-size:13px;opacity:0;pointer-events:none;transition:.2s;z-index:20;max-width:90vw}.toast.show{opacity:1;transform:translate(-50%,0)}.modal-backdrop{position:fixed;inset:0;background:#000000a6;backdrop-filter:blur(6px);z-index:100;display:grid;place-items:center;padding:16px;opacity:0;pointer-events:none;transition:.2s}.modal-backdrop.show{opacity:1;pointer-events:auto}.modal{background:#141518;border:1px solid #32343c;border-radius:20px;max-width:580px;width:100%;max-height:90vh;overflow-y:auto;padding:24px;box-shadow:var(--shadow)}.modal h3{margin:0 0 12px;font-size:20px;display:flex;align-items:center;justify-content:space-between}.modal-close{border:0;background:transparent;color:#a4a5ad;font-size:20px;padding:4px}.code-block{background:#090a0c;border:1px solid #282930;border-radius:10px;padding:12px;font-family:monospace;font-size:12px;color:#4af;white-space:pre-wrap;overflow-x:auto}.light{--bg:#f5f5f7;--panel:#fff;--panel2:#f0f0f3;--line:#dedee4;--text:#151519;--muted:#666873;background:radial-gradient(ellipse at 70% -20%,#ffd9e0 0,transparent 35%),var(--bg)}.light .sidebar,.light .topbar,.light .modal{background:#ffffffed;color:#111}.light .brandname,.light .topbar,.light .nav button{color:var(--text)}.light .search,.light .iconbtn,.light .platform,.light .panel{background:#fff}.light .search input,.light .field input,.light .field select,.light .field textarea{color:#111;background:#fff}.light .hero{background:linear-gradient(115deg,#ffe5eb,#fff 65%,#f7f7f8)}.light .hero p{color:#5e5960}.light .modebtn{background:#fff;color:#333}.light .modebtn.active{background:var(--red);color:#fff}.light .viewer{background:#f7f7f8}.light .field input,.light .field textarea{border-color:#d7d7de}.light .code-block{background:#f0f1f5;color:#005cc5;border-color:#d0d1d9}
+@media(max-width:1000px){.app{grid-template-columns:210px minmax(0,1fr)}.sidebar{padding:18px 10px}.content{padding:22px 20px 90px}.topbar{padding:0 20px}.feed-layout{grid-template-columns:1fr}.viewer{min-height:330px}}
+@media(max-width:700px){.app{display:block}.sidebar{display:none}.topbar{height:62px;padding:0 14px;gap:10px}.mobile-brand{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:900;white-space:nowrap}.mobile-brand .brandmark{width:32px;height:32px;border-radius:10px}.mobile-brand .brandmark svg{width:18px}.topbar>.search{height:38px;padding:0 10px}.topbar>.search input{font-size:12px}.topbar>.search button{display:none}.topactions{gap:6px}.topactions .iconbtn{height:36px;width:36px}.topactions .avatar{display:none}.content{padding:16px 13px 100px}.hero{padding:21px 18px;border-radius:19px}.hero-art{display:none}.eyebrow{font-size:9px}.sectionhead{margin:24px 0 13px}.sectionhead h2{font-size:18px}.sectionhead p{font-size:12px}.platforms{grid-template-columns:1fr;gap:10px}.platform{padding:15px;border-radius:16px;gap:12px}.platform-icon{width:48px;height:48px;border-radius:14px}.platform h3{font-size:15px}.platform p{font-size:11px}.modebar{display:grid;grid-template-columns:1fr 1fr}.modebtn{justify-content:center;padding:10px 7px;font-size:12px}.panel{padding:15px}.viewer{min-height:300px;padding:20px}.bottomnav{display:flex;position:fixed;z-index:10;bottom:0;left:0;right:0;padding:8px 5px calc(8px + env(safe-area-inset-bottom));justify-content:space-around;background:#0c0c0df2;border-top:1px solid #28292e;backdrop-filter:blur(18px)}.bottomnav button{border:0;background:transparent;color:#92939b;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;min-width:54px;padding:5px 4px}.bottomnav button svg{width:19px;height:19px}.bottomnav button.active{color:#ff365d}.settingrow{align-items:flex-start}.light .bottomnav{background:#fffffff2;border-color:#ddd}.light .bottomnav button{color:#666}.light .bottomnav button.active{color:var(--red)}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><div class="brandmark"><svg viewBox="0 0 24 24" fill="none"><path d="M8 5.8c0-.8.9-1.3 1.6-.9l9.1 5.2a1 1 0 0 1 0 1.8l-9.1 5.2c-.7.4-1.6-.1-1.6-.9V5.8Z" stroke="white" stroke-width="2" fill="#fff2"/></svg></div><div><div class="brandname">SHORT<span>VERSE</span></div><div class="subbrand">HYBRID APP</div></div></div>
+  <div><div class="navlabel" data-i18n="workspace">WORKSPACE</div><nav class="nav">
+    <button class="active" data-page="home"><svg viewBox="0 0 24 24" fill="none"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1V10Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span data-i18n="home">หน้าแรก</span></button>
+    <button data-page="watch" data-platform="youtube"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="5" width="20" height="14" rx="4" fill="currentColor"/><path d="m10 9 5 3-5 3V9Z" fill="#111"/></svg><span>YouTube Shorts</span></button>
+    <button data-page="watch" data-platform="tiktok"><svg viewBox="0 0 24 24" fill="none"><path d="M14 3v11.2a4.2 4.2 0 1 1-3-4V7.1a8 8 0 1 0 7 7.9V9.8c1.5 1.1 3.1 1.7 4 1.8V7.8c-3.7-.2-5.8-2.4-6-4.8H14Z" fill="currentColor"/></svg><span>TikTok</span></button>
+    <button data-page="favorites"><svg viewBox="0 0 24 24" fill="none"><path d="M20.8 8.8c0 5.1-8.8 11-8.8 11s-8.8-5.9-8.8-11A4.6 4.6 0 0 1 12 6.2a4.6 4.6 0 0 1 8.8 2.6Z" stroke="currentColor" stroke-width="1.8"/></svg><span data-i18n="favorites">รายการโปรด</span></button>
+    <button data-page="collections"><svg viewBox="0 0 24 24" fill="none"><path d="M4 4h6l2 2h8v14H4V4Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span data-i18n="collections">คอลเลกชัน</span></button>
+    <button data-page="history"><svg viewBox="0 0 24 24" fill="none"><path d="M3 12a9 9 0 1 0 2.6-6.4L3 8m0-5v5h5m4-1v5l4 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="history">ประวัติการดู</span></button>
+  </nav></div>
+  <div><div class="navlabel" data-i18n="preferences">PREFERENCES</div><nav class="nav">
+    <button data-page="settings"><svg viewBox="0 0 24 24" fill="none"><path d="M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7ZM19 13.5l2 1.5-2 3.5-2.4-1a7.5 7.5 0 0 1-2 1.2L14 21h-4l-.6-2.3a7.5 7.5 0 0 1-2-1.2l-2.4 1L3 15l2-1.5a7.8 7.8 0 0 1 0-2.4L3 9.5 5 6l2.4 1a7.5 7.5 0 0 1 2-1.2L10 3h4l.6 2.8a7.5 7.5 0 0 1 2 1.2L19 6l2 3.5-2 1.6a7.8 7.8 0 0 1 0-2.4Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg><span data-i18n="settings">ตั้งค่า</span></button>
+    <button data-page="admin"><svg viewBox="0 0 24 24" fill="none"><path d="M7 14a4 4 0 1 1 3.7-2.5L21 11v4h-3v3h-4v-3h-2.3A4 4 0 0 1 7 14Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span>Admin / API</span></button>
+  </nav></div>
+  <div class="sidebottom"><div class="mini-row"><span data-i18n="language">ภาษา</span><select id="lang"><option value="th">ไทย</option><option value="en">English</option></select></div><div class="mini-row"><span data-i18n="appearance">ธีม</span><select id="theme"><option value="dark">มืด</option><option value="light">สว่าง</option></select></div><div class="mini-row"><span>SHORTVERSE</span><span>v1.0 Ready</span></div></div>
+</aside>
+<main class="main">
+<header class="topbar">
+  <div class="mobile-brand"><div class="brandmark"><svg viewBox="0 0 24 24" fill="none"><path d="M8 5.8c0-.8.9-1.3 1.6-.9l9.1 5.2a1 1 0 0 1 0 1.8l-9.1 5.2c-.7.4-1.6-.1-1.6-.9V5.8Z" stroke="white" stroke-width="2" fill="#fff2"/></svg></div><span>SHORT<span style="color:#ff1744">VERSE</span></span></div>
+  <form class="search" id="searchForm"><svg viewBox="0 0 24 24" fill="none"><circle cx="10.8" cy="10.8" r="6.8" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><input id="searchInput" placeholder="ค้นหาในแพลตฟอร์มที่เลือก..." aria-label="Search"><button type="submit" data-i18n="search">ค้นหา</button></form>
+  <div class="topactions"><button class="iconbtn" id="themeQuick" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none"><path d="M20 15.5A8 8 0 0 1 8.5 4 8.5 8.5 0 1 0 20 15.5Z" stroke="currentColor" stroke-width="1.8"/></svg></button><button class="iconbtn" id="langQuick" aria-label="Switch language"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18" stroke="currentColor" stroke-width="1.4"/></svg></button><div class="avatar">S</div></div>
+</header>
+<div class="content">
+<section class="page active" id="page-home">
+  <div class="hero"><div><div class="eyebrow" data-i18n="heroeyebrow">YOUR PERSONAL SHORT VIDEO HUB</div><h1 data-i18n="heroTitle">คลิปที่คุณชอบ<br>ในพื้นที่ของคุณ</h1><p data-i18n="heroDesc">เลือกแพลตฟอร์มที่ต้องการรับชม เชื่อมบัญชีของคุณ และจัดการรายการโปรดได้จากคอมพิวเตอร์หรือมือถือ</p></div><div class="hero-art"><svg viewBox="0 0 24 24" fill="none"><path d="M8 5.8c0-.8.9-1.3 1.6-.9l9.1 5.2a1 1 0 0 1 0 1.8l-9.1 5.2c-.7.4-1.6-.1-1.6-.9V5.8Z" stroke="white" stroke-width="1.8" fill="#fff2"/></svg></div></div>
+  <div class="sectionhead"><div><h2 data-i18n="choosePlatform">เลือกแพลตฟอร์ม</h2><p data-i18n="chooseDesc">เลือกดูทีละแพลตฟอร์ม ไม่แสดงคลิปปะปนกัน</p></div></div>
+  <div class="platforms">
+    <button class="platform selected" data-choose="youtube"><div class="platform-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg></div><div><h3>YouTube Shorts</h3><p data-i18n="ytDesc">วิดีโอสั้นจาก YouTube</p><span class="pill red" data-i18n="selectMode">เลือกโหมดนี้</span></div><svg class="chevron" viewBox="0 0 24 24" fill="none"><path d="m9 18 6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+    <button class="platform tiktok" data-choose="tiktok"><div class="platform-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.6 5.7a5.4 5.4 0 0 1-3.3-3.3A5.8 5.8 0 0 1 16 1h-4v14.2a3.2 3.2 0 1 1-2.2-3V8.1a7.3 7.3 0 1 0 6.2 7.2V8.1a9.2 9.2 0 0 0 5.2 1.6V5.8c-.5 0-1.1 0-1.6-.1Z"/></svg></div><div><h3>TikTok</h3><p data-i18n="ttDesc">วิดีโอจากบัญชี TikTok</p><span class="pill" data-i18n="switchMode">สลับไปดูได้</span></div><svg class="chevron" viewBox="0 0 24 24" fill="none"><path d="m9 18 6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+  </div>
+  <div class="sectionhead"><div><h2 data-i18n="workspaceTitle">พื้นที่รับชม</h2><p data-i18n="workspaceDesc">เลือกแหล่งวิดีโอ แล้วเริ่มเชื่อมต่อบัญชีของคุณ</p></div><div class="modebar"><button class="modebtn active" data-mode="youtube">▶ YouTube Shorts</button><button class="modebtn" data-mode="tiktok">♪ TikTok</button></div></div>
+  <div class="feed-layout"><div class="panel"><div class="viewer"><div class="viewer-icon" id="viewerIcon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg></div><h3 id="viewerTitle">YouTube Shorts</h3><p id="viewerDesc">ยังไม่ได้เชื่อมต่อ API หรือบัญชี YouTube ระบบจะไม่สร้างฟีดจำลอง เมื่อเชื่อมต่อระบบจริงแล้ว วิดีโอที่เข้าถึงได้จะแสดงที่นี่</p><div class="rowwrap"><button class="btn" id="connectBtn">ตั้งค่าการเชื่อมต่อ</button><button class="btn secondary" id="openOriginal">เปิดแพลตฟอร์มต้นฉบับ ↗</button></div></div></div>
+  <div class="panel"><h3 data-i18n="accountStatus">สถานะบัญชี</h3><div class="status"><span class="dot" id="liveDot"></span><span id="statusText">ยังไม่ได้เชื่อมต่อ</span></div><div class="notice rednotice" data-i18n="feedNotice">ข้อจำกัดที่ต้องทราบ: API สาธารณะไม่ได้รับประกันการดึงฟีดแนะนำส่วนตัวเหมือนแอปต้นฉบับ</div><div class="settingrow"><div><strong data-i18n="personalFeed">ฟีดส่วนตัว</strong><small data-i18n="personalFeedDesc">ต้องตรวจสอบสิทธิ์ API ที่มีจริง</small></div><span class="pill" id="feedPill">NOT VERIFIED</span></div><div class="settingrow"><div><strong data-i18n="crossDevice">ซิงก์หลายอุปกรณ์</strong><small data-i18n="crossDeviceDesc">ต้องมี Backend และฐานข้อมูล</small></div><span class="pill">NOT CONFIGURED</span></div></div></div>
+</section>
+<section class="page" id="page-watch"><div class="sectionhead"><div><h2 id="watchHeading">YouTube Shorts</h2><p data-i18n="watchSub">เลือกแพลตฟอร์มเดียวสำหรับพื้นที่รับชมนี้</p></div></div><div class="modebar" style="margin-bottom:18px"><button class="modebtn active" data-mode="youtube">▶ YouTube Shorts</button><button class="modebtn" data-mode="tiktok">♪ TikTok</button></div><div class="feed-layout"><div class="panel"><div class="viewer"><div class="viewer-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm-2 14V8l6 4-6 4Z"/></svg></div><h3 id="watchViewerTitle">ยังไม่มีการเชื่อมต่อ</h3><p id="watchViewerDesc">เชื่อมต่อ API ที่ได้รับอนุญาต หรือเปิดแพลตฟอร์มต้นฉบับเพื่อรับชมฟีดส่วนตัว</p><div class="rowwrap"><button class="btn" id="watchConnect">ตั้งค่าการเชื่อมต่อ</button><button class="btn secondary" id="watchOriginal">เปิดต้นฉบับ ↗</button></div></div></div><div class="panel"><h3 data-i18n="whatAvailable">สิ่งที่รองรับ</h3><div class="settingrow"><div><strong>API / Embed</strong><small data-i18n="availableDesc">แสดงข้อมูลที่ API อนุญาตและตรวจสอบได้</small></div></div><div class="settingrow"><div><strong data-i18n="originalExperience">ประสบการณ์ต้นฉบับ</strong><small data-i18n="originalDesc">เปิดเว็บไซต์หรือแอปของแพลตฟอร์ม</small></div></div><div class="notice">ไม่เก็บรหัสผ่านของ YouTube หรือ TikTok ใน SHORTVERSE</div></div></div></section>
+<section class="page" id="page-favorites"><div class="sectionhead"><div><h2 data-i18n="favorites">รายการโปรด</h2><p data-i18n="favoritesDesc">บันทึกลิงก์วิดีโอไว้เปิดดูภายหลัง</p></div><button class="btn" id="addFavorite">＋ <span data-i18n="addLink">เพิ่มลิงก์</span></button></div><div class="panel"><div id="favoritesList" class="emptylist">ยังไม่มีรายการโปรด กด “เพิ่มลิงก์” เพื่อบันทึกลิงก์วิดีโอที่คุณต้องการ</div></div></section>
+<section class="page" id="page-collections"><div class="sectionhead"><div><h2 data-i18n="collections">คอลเลกชัน</h2><p data-i18n="collectionsDesc">จัดกลุ่มลิงก์ที่คุณบันทึกไว้</p></div></div><div class="panel"><div class="emptylist" data-i18n="collectionsEmpty">ยังไม่มีคอลเลกชัน สามารถเพิ่มระบบจัดการคอลเลกชันในขั้นตอนเชื่อมฐานข้อมูล</div></div></section>
+<section class="page" id="page-history"><div class="sectionhead"><div><h2 data-i18n="history">ประวัติการดู</h2><p data-i18n="historyDesc">รายการลิงก์ที่เปิดจาก SHORTVERSE บนอุปกรณ์นี้</p></div><button class="btn secondary" id="clearHistory" data-i18n="clearHistory">ล้างประวัติ</button></div><div class="panel"><div id="historyList" class="emptylist">ยังไม่มีประวัติ</div></div></section>
+<section class="page" id="page-settings"><div class="sectionhead"><div><h2 data-i18n="settings">ตั้งค่า</h2><p data-i18n="settingsDesc">ตั้งค่าประสบการณ์ใช้งานของคุณ</p></div></div><div class="panel"><div class="settingrow"><div><strong data-i18n="language">ภาษา</strong><small data-i18n="languageDesc">เลือกภาษาของหน้าจอ</small></div><select id="langSetting"><option value="th">ไทย</option><option value="en">English</option></select></div><div class="settingrow"><div><strong data-i18n="appearance">ธีม</strong><small data-i18n="themeDesc">เลือกโหมดมืดหรือสว่าง</small></div><select id="themeSetting"><option value="dark">มืด</option><option value="light">สว่าง</option></select></div><div class="settingrow"><div><strong data-i18n="selectedPlatform">แพลตฟอร์มเริ่มต้น</strong><small data-i18n="selectedPlatformDesc">เลือกโหมดที่เปิดเมื่อเข้าแอป</small></div><select id="defaultPlatform"><option value="youtube">YouTube Shorts</option><option value="tiktok">TikTok</option></select></div><div class="settingrow"><div><strong data-i18n="localData">ข้อมูลในอุปกรณ์นี้</strong><small data-i18n="localDataDesc">รายการโปรดและการตั้งค่าถูกเก็บในเบราว์เซอร์นี้เท่านั้น</small></div><button class="btn secondary" id="exportData" data-i18n="exportData">ส่งออก JSON</button></div></div></section>
+<section class="page" id="page-admin">
+  <div class="sectionhead"><div><h2>Admin / API Settings</h2><p data-i18n="adminDesc">ตั้งค่าการเชื่อมต่อ API สำหรับผู้พัฒนาและเจ้าของแอป</p></div></div>
+  
+  <div class="notice rednotice" style="margin-bottom:16px">
+    <strong>ข้อควรระวังความปลอดภัย:</strong> ในระบบจริง (Production) ควรตั้งค่า API Key ไว้ที่ Backend Server / Environment Variable เท่านั้น ไม่ควรฝัง Secret Key ลงใน Client-side HTML/JS
+  </div>
+
+  <div class="panel">
+    <h3>1. ตั้งค่า Local Browser API Key (สำหรับทดสอบ Client-Side)</h3>
+    <p class="muted" style="font-size:13px">คุณสามารถบันทึก Key ลงใน LocalStorage ของเบราว์เซอร์เครื่องนี้เพื่อใช้ทดสอบการดึงข้อมูลชั่วคราวได้</p>
+    
+    <div class="field">
+      <label>YouTube Data API v3 Key</label>
+      <input type="password" id="ytKeyInput" placeholder="AIzaSy...">
+      <small>รับ Key ได้จาก Google Cloud Console (เปิดใช้งาน YouTube Data API v3)</small>
+    </div>
+
+    <div class="field">
+      <label>TikTok Client Key / App ID</label>
+      <input type="text" id="ttKeyInput" placeholder="aw...">
+      <small>รับ Key ได้จาก TikTok Developers Portal</small>
+    </div>
+
+    <div class="rowwrap" style="margin-top:14px">
+      <button class="btn" id="saveKeysBtn">บันทึก Key ลงเครื่องนี้</button>
+      <button class="btn secondary" id="clearKeysBtn">ลบ Key ที่บันทึกไว้</button>
+    </div>
+  </div>
+
+  <div class="panel" style="margin-top:16px">
+    <h3>2. การตั้งค่า Backend Proxy URL (สำหรับระบบ Production)</h3>
+    <div class="field">
+      <label>Backend API Endpoint URL</label>
+      <input type="url" id="backendUrlInput" placeholder="https://api.yourdomain.com/v1">
+      <small>เซิร์ฟเวอร์ฝั่ง Node.js / Python / Go ที่ทำหน้าที่ซ่อน API Key และจัดการ OAuth Access Token</small>
+    </div>
+    <button class="btn secondary" id="saveBackendBtn">บันทึก Backend Endpoint</button>
+  </div>
+
+  <div class="panel" style="margin-top:16px">
+    <h3>คำแนะนำขั้นตอนการขอ API Key</h3>
+    <div class="rowwrap">
+      <button class="btn ghost" id="guideYtBtn">วิธีขอ YouTube API Key ↗</button>
+      <button class="btn ghost" id="guideTtBtn">วิธีขอ TikTok API Key ↗</button>
+    </div>
+  </div>
+</section>
+</div>
+</main>
+</div>
+
+<nav class="bottomnav">
+<button class="active" data-page="home"><svg viewBox="0 0 24 24" fill="none"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1V10Z" stroke="currentColor" stroke-width="1.8"/></svg><span data-i18n="home">หน้าแรก</span></button>
+<button data-page="watch" data-platform="youtube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 7a3 3 0 0 0-2-2C19 4.5 12 4.5 12 4.5S5 4.5 3 5a3 3 0 0 0-2 2 25 25 0 0 0 0 10 3 3 0 0 0 2 2c2 .5 9 .5 9 .5s7 0 9-.5a3 3 0 0 0 2-2 25 25 0 0 0 0-10ZM10 15.5v-7l6 3.5-6 3.5Z"/></svg><span>Shorts</span></button>
+<button data-page="favorites"><svg viewBox="0 0 24 24" fill="none"><path d="M20.8 8.8c0 5.1-8.8 11-8.8 11s-8.8-5.9-8.8-11A4.6 4.6 0 0 1 12 6.2a4.6 4.6 0 0 1 8.8 2.6Z" stroke="currentColor" stroke-width="1.8"/></svg><span data-i18n="favorites">โปรด</span></button>
+<button data-page="settings"><svg viewBox="0 0 24 24" fill="none"><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm0-6v3m0 14v3M2 12h3m14 0h3M4.9 4.9 7 7m10 10 2.1 2.1m0-14.2L17 7M7 17l-2.1 2.1" stroke="currentColor" stroke-width="1.7"/></svg><span data-i18n="settings">ตั้งค่า</span></button>
+</nav>
+
+<!-- Modal Guide -->
+<div class="modal-backdrop" id="guideModal">
+  <div class="modal">
+    <h3><span id="modalTitle">คู่มือการตั้งค่า API</span> <button class="modal-close" id="modalClose">&times;</button></h3>
+    <div id="modalBody" style="font-size:13px;line-height:1.7;color:var(--muted)"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const translations={
+th:{workspace:"WORKSPACE",home:"หน้าแรก",favorites:"รายการโปรด",collections:"คอลเลกชัน",history:"ประวัติการดู",preferences:"PREFERENCES",settings:"ตั้งค่า",language:"ภาษา",appearance:"ธีม",heroeyebrow:"YOUR PERSONAL SHORT VIDEO HUB",heroTitle:"คลิปที่คุณชอบ<br>ในพื้นที่ของคุณ",heroDesc:"เลือกแพลตฟอร์มที่ต้องการรับชม เชื่อมบัญชีของคุณ และจัดการรายการโปรดได้จากคอมพิวเตอร์หรือมือถือ",choosePlatform:"เลือกแพลตฟอร์ม",chooseDesc:"เลือกดูทีละแพลตฟอร์ม ไม่แสดงคลิปปะปนกัน",ytDesc:"วิดีโอสั้นจาก YouTube",ttDesc:"วิดีโอจากบัญชี TikTok",selectMode:"เลือกโหมดนี้",switchMode:"สลับไปดูได้",workspaceTitle:"พื้นที่รับชม",workspaceDesc:"เลือกแหล่งวิดีโอ แล้วเริ่มเชื่อมต่อบัญชีของคุณ",search:"ค้นหา",watchSub:"เลือกแพลตฟอร์มเดียวสำหรับพื้นที่รับชมนี้",accountStatus:"สถานะบัญชี",feedNotice:"ข้อจำกัดที่ต้องทราบ: API สาธารณะไม่ได้รับประกันการดึงฟีดแนะนำส่วนตัวเหมือนแอปต้นฉบับ",personalFeed:"ฟีดส่วนตัว",personalFeedDesc:"ต้องตรวจสอบสิทธิ์ API ที่มีจริง",crossDevice:"ซิงก์หลายอุปกรณ์",crossDeviceDesc:"ต้องมี Backend และฐานข้อมูล",whatAvailable:"สิ่งที่รองรับ",availableDesc:"แสดงข้อมูลที่ API อนุญาตและตรวจสอบได้",originalExperience:"ประสบการณ์ต้นฉบับ",originalDesc:"เปิดเว็บไซต์หรือแอปของแพลตฟอร์ม",favoritesDesc:"บันทึกลิงก์วิดีโอไว้เปิดดูภายหลัง",addLink:"เพิ่มลิงก์",collectionsDesc:"จัดกลุ่มลิงก์ที่คุณบันทึกไว้",collectionsEmpty:"ยังไม่มีคอลเลกชัน สามารถเพิ่มระบบจัดการคอลเลกชันในขั้นตอนเชื่อมฐานข้อมูล",historyDesc:"รายการลิงก์ที่เปิดจาก SHORTVERSE บนอุปกรณ์นี้",clearHistory:"ล้างประวัติ",settingsDesc:"ตั้งค่าประสบการณ์ใช้งานของคุณ",languageDesc:"เลือกภาษาของหน้าจอ",themeDesc:"เลือกโหมดมืดหรือสว่าง",selectedPlatform:"แพลตฟอร์มเริ่มต้น",selectedPlatformDesc:"เลือกโหมดที่เปิดเมื่อเข้าแอป",localData:"ข้อมูลในอุปกรณ์นี้",localDataDesc:"รายการโปรดและการตั้งค่าถูกเก็บในเบราว์เซอร์นี้เท่านั้น",exportData:"ส่งออก JSON",adminDesc:"จัดการ API Key และ Backend Endpoint"},
+en:{workspace:"WORKSPACE",home:"Home",favorites:"Favorites",collections:"Collections",history:"Watch history",preferences:"PREFERENCES",settings:"Settings",language:"Language",appearance:"Theme",heroeyebrow:"YOUR PERSONAL SHORT VIDEO HUB",heroTitle:"Your favorite clips<br>in one personal space",heroDesc:"Choose a platform, connect your account, and manage saved links from desktop or mobile.",choosePlatform:"Choose a platform",chooseDesc:"Use one platform at a time. Feeds never mix.",ytDesc:"Short-form videos from YouTube",ttDesc:"Videos from TikTok",selectMode:"Select this mode",switchMode:"Switch to this mode",workspaceTitle:"Watch workspace",workspaceDesc:"Choose a source and configure your connection.",search:"Search",watchSub:"Choose one platform for this viewing space",accountStatus:"Account status",feedNotice:"Important: Public APIs do not guarantee access to personalized feeds exactly as shown in the original apps.",personalFeed:"Personalized feed",personalFeedDesc:"API access must be verified",crossDevice:"Cross-device sync",crossDeviceDesc:"Requires a backend and database",whatAvailable:"Available integration",availableDesc:"Only show data allowed by the platform API",originalExperience:"Original experience",originalDesc:"Open the platform website or app",favoritesDesc:"Save video links to revisit later",addLink:"Add link",collectionsDesc:"Organize saved links",collectionsEmpty:"No collections yet. Collection management can be added with database integration.",historyDesc:"Links opened from SHORTVERSE on this device",clearHistory:"Clear history",settingsDesc:"Customize your experience",languageDesc:"Choose interface language",themeDesc:"Choose dark or light mode",selectedPlatform:"Default platform",selectedPlatformDesc:"Choose which mode opens first",localData:"Local device data",localDataDesc:"Favorites and settings are stored in this browser only",exportData:"Export JSON",adminDesc:"Manage API Keys and Backend Endpoint"}
+};
+
+let state={
+  platform:localStorage.getItem("sv_platform")||"youtube",
+  theme:localStorage.getItem("sv_theme")||"dark",
+  lang:localStorage.getItem("sv_lang")||"th",
+  page:"home",
+  favorites:JSON.parse(localStorage.getItem("sv_favorites")||"[]"),
+  history:JSON.parse(localStorage.getItem("sv_history")||"[]"),
+  ytKey:localStorage.getItem("sv_yt_key")||"",
+  ttKey:localStorage.getItem("sv_tt_key")||"",
+  backendUrl:localStorage.getItem("sv_backend_url")||""
+};
+
+function toast(msg){const t=$("#toast");t.textContent=msg;t.classList.add("show");clearTimeout(window._toastTimer);window._toastTimer=setTimeout(()=>t.classList.remove("show"),2600)}
+function t(k){return (translations[state.lang]||translations.th)[k]||k}
+
+function updateStatusUI(){
+  const isY=state.platform==="youtube";
+  const hasKey=isY?!!state.ytKey:!!state.ttKey;
+  const liveDot=$("#liveDot");
+  const statusText=$("#statusText");
+  const feedPill=$("#feedPill");
+
+  if(hasKey||state.backendUrl){
+    if(liveDot) liveDot.className="dot green";
+    if(statusText) statusText.textContent=(isY?"YouTube":"TikTok")+" API Key พร้อมใช้งาน (Local/Backend)";
+    if(feedPill) { feedPill.textContent="CONFIGURED"; feedPill.className="pill green"; }
+  } else {
+    if(liveDot) liveDot.className="dot";
+    if(statusText) statusText.textContent=(isY?"YouTube API":"TikTok OAuth")+" ยังไม่ได้ตั้งค่า Key";
+    if(feedPill) { feedPill.textContent="NOT VERIFIED"; feedPill.className="pill"; }
+  }
+}
+
+function setPlatform(p){
+  state.platform=p;
+  localStorage.setItem("sv_platform",p);
+  $$("[data-mode]").forEach(b=>b.classList.toggle("active",b.dataset.mode===p));
+  $$("[data-choose]").forEach(b=>b.classList.toggle("selected",b.dataset.choose===p));
+  const isY=p==="youtube";
+  
+  $("#viewerTitle").textContent=isY?"YouTube Shorts":"TikTok";
+  $("#watchHeading").textContent=isY?"YouTube Shorts":"TikTok";
+  $("#watchViewerTitle").textContent=isY?(state.ytKey?"YouTube Shorts (API Ready)":"YouTube Shorts — ยังไม่ได้ตั้งค่า Key"):(state.ttKey?"TikTok (API Ready)":"TikTok — ยังไม่ได้ตั้งค่า Key");
+  
+  $("#viewerDesc").textContent=isY?
+    (state.ytKey?"YouTube API Key เชื่อมต่อสำเร็จ พร้อมสำหรับดึงข้อมูลค้นหาและวิดีโอที่ระบุ":"ยังไม่ได้ตั้งค่า API Key สามารถเข้าหน้า Admin/API เพื่อใส่ Key หรือเปิดแพลตฟอร์มต้นฉบับ"):
+    (state.ttKey?"TikTok Client Key เชื่อมต่อแล้ว":"ยังไม่ได้เชื่อมต่อ TikTok API สามารถเข้าหน้า Admin/API เพื่อกำหนดค่า");
+  
+  $("#openOriginal").textContent=isY?"เปิด YouTube ↗":"เปิด TikTok ↗";
+  $("#watchOriginal").textContent=isY?"เปิด YouTube ↗":"เปิด TikTok ↗";
+  $("#viewerIcon").innerHTML=isY?'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg>':'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.6 5.7a5.4 5.4 0 0 1-3.3-3.3A5.8 5.8 0 0 1 16 1h-4v14.2a3.2 3.2 0 1 1-2.2-3V8.1a7.3 7.3 0 1 0 6.2 7.2V8.1a9.2 9.2 0 0 0 5.2 1.6V5.8c-.5 0-1.1 0-1.6-.1Z"/></svg>';
+  
+  updateStatusUI();
+  renderSaved();
+}
+
+function navigate(page){
+  state.page=page;
+  $$(".page").forEach(p=>p.classList.toggle("active",p.id==="page-"+page));
+  $$("[data-page]").forEach(b=>b.classList.toggle("active",b.dataset.page===page));
+  if(page==="watch")setPlatform(state.platform);
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function setTheme(v){
+  state.theme=v;
+  document.body.classList.toggle("light",v==="light");
+  localStorage.setItem("sv_theme",v);
+  $("#theme").value=v;
+  $("#themeSetting").value=v;
+}
+
+function setLang(v){
+  state.lang=v;
+  document.documentElement.lang=v;
+  localStorage.setItem("sv_lang",v);
+  $("#lang").value=v;
+  $("#langSetting").value=v;
+  $$("[data-i18n]").forEach(el=>{
+    const key=el.dataset.i18n;
+    if(t(key)!==key)el.innerHTML=t(key);
+  });
+  $("#searchInput").placeholder=v==="th"?"ค้นหาในแพลตฟอร์มที่เลือก...":"Search selected platform...";
+  setPlatform(state.platform);
+}
+
+function originalUrl(){return state.platform==="youtube"?"https://www.youtube.com/shorts/":"https://www.tiktok.com/"}
+function openOriginal(){
+  const url=originalUrl();
+  window.open(url,"_blank","noopener,noreferrer");
+  const item={url,platform:state.platform,date:new Date().toISOString()};
+  state.history.unshift(item);
+  state.history=state.history.slice(0,100);
+  localStorage.setItem("sv_history",JSON.stringify(state.history));
+  renderSaved();
+}
+
+function renderSaved(){
+  const fl=$("#favoritesList");
+  if(fl){
+    if(!state.favorites.length)fl.textContent=state.lang==="th"?"ยังไม่มีรายการโปรด กด “เพิ่มลิงก์” เพื่อบันทึกลิงก์วิดีโอที่คุณต้องการ":"No favorites yet. Select “Add link” to save a video URL.";
+    else fl.innerHTML=state.favorites.map((x,i)=>`<div class="settingrow"><div style="min-width:0"><strong>${escapeHtml(x.title||x.url)}</strong><small>${escapeHtml(x.platform)} · <a href="${escapeAttr(x.url)}" target="_blank" rel="noopener noreferrer" style="color:#ff718a">Open ↗</a></small></div><button class="btn secondary" data-delete-fav="${i}">ลบ</button></div>`).join("");
+  }
+  const hl=$("#historyList");
+  if(hl){
+    if(!state.history.length)hl.textContent=state.lang==="th"?"ยังไม่มีประวัติ":"No history yet.";
+    else hl.innerHTML=state.history.map(x=>`<div class="settingrow"><div style="min-width:0"><strong>${escapeHtml(x.platform==="youtube"?"YouTube Shorts":"TikTok")}</strong><small>${new Date(x.date).toLocaleString()} · ${escapeHtml(x.url)}</small></div><a href="${escapeAttr(x.url)}" target="_blank" rel="noopener noreferrer" class="btn secondary">เปิด ↗</a></div>`).join("");
+  }
+}
+
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function escapeAttr(s){return escapeHtml(s)}
+
+function openModal(title, contentHtml){
+  $("#modalTitle").textContent=title;
+  $("#modalBody").innerHTML=contentHtml;
+  $("#guideModal").classList.add("show");
+}
+function closeModal(){ $("#guideModal").classList.remove("show"); }
+
+$$("[data-page]").forEach(b=>b.addEventListener("click",()=>{if(b.dataset.platform)setPlatform(b.dataset.platform);navigate(b.dataset.page)}));
+$$("[data-mode]").forEach(b=>b.addEventListener("click",()=>setPlatform(b.dataset.mode)));
+$$("[data-choose]").forEach(b=>b.addEventListener("click",()=>{setPlatform(b.dataset.choose);navigate("watch")}));
+
+$("#theme").addEventListener("change",e=>setTheme(e.target.value));
+$("#themeSetting").addEventListener("change",e=>setTheme(e.target.value));
+$("#themeQuick").addEventListener("click",()=>setTheme(state.theme==="dark"?"light":"dark"));
+
+$("#lang").addEventListener("change",e=>setLang(e.target.value));
+$("#langSetting").addEventListener("change",e=>setLang(e.target.value));
+$("#langQuick").addEventListener("click",()=>setLang(state.lang==="th"?"en":"th"));
+
+$("#connectBtn").addEventListener("click",()=>navigate("admin"));
+$("#watchConnect").addEventListener("click",()=>navigate("admin"));
+
+$("#openOriginal").addEventListener("click",openOriginal);
+$("#watchOriginal").addEventListener("click",openOriginal);
+
+$("#searchForm").addEventListener("submit",e=>{
+  e.preventDefault();
+  const q=$("#searchInput").value.trim();
+  if(!q){toast(state.lang==="th"?"พิมพ์คำค้นหาก่อน":"Enter a search query first");return}
+  if(state.platform==="youtube"){
+    const url="https://www.youtube.com/results?search_query="+encodeURIComponent(q+" shorts");
+    window.open(url,"_blank","noopener,noreferrer");
+    toast("เปิดผลค้นหาบน YouTube");
+  }else{
+    window.open("https://www.tiktok.com/search?q="+encodeURIComponent(q),"_blank","noopener,noreferrer");
+    toast("เปิดผลค้นหาบน TikTok");
+  }
+});
+
+$("#addFavorite").addEventListener("click",()=>{
+  const url=prompt("วาง URL วิดีโอ YouTube Shorts หรือ TikTok:");
+  if(!url)return;
+  try{
+    const u=new URL(url);
+    if(!["youtube.com","www.youtube.com","youtu.be","tiktok.com","www.tiktok.com","m.tiktok.com"].includes(u.hostname)){toast("รองรับลิงก์ YouTube/TikTok เท่านั้น");return}
+    const title=prompt("ชื่อเรียก (ไม่ใส่ก็ได้):")||u.hostname;
+    state.favorites.unshift({url:u.href,title,platform:u.hostname.includes("tiktok")?"tiktok":"youtube"});
+    localStorage.setItem("sv_favorites",JSON.stringify(state.favorites));
+    renderSaved();
+    toast("บันทึกลิงก์แล้วในเบราว์เซอร์นี้");
+  }catch{toast("URL ไม่ถูกต้อง")}
+});
+
+$("#favoritesList").addEventListener("click",e=>{
+  const b=e.target.closest("[data-delete-fav]");
+  if(!b)return;
+  state.favorites.splice(Number(b.dataset.deleteFav),1);
+  localStorage.setItem("sv_favorites",JSON.stringify(state.favorites));
+  renderSaved();
+});
+
+$("#clearHistory").addEventListener("click",()=>{
+  if(confirm("ล้างประวัติบนอุปกรณ์นี้?")){
+    state.history=[];
+    localStorage.setItem("sv_history","[]");
+    renderSaved();
+    toast("ล้างประวัติแล้ว");
+  }
+});
+
+$("#defaultPlatform").value=state.platform;
+$("#defaultPlatform").addEventListener("change",e=>setPlatform(e.target.value));
+
+$("#exportData").addEventListener("click",()=>{
+  const blob=new Blob([JSON.stringify({favorites:state.favorites,history:state.history,settings:{theme:state.theme,lang:state.lang,platform:state.platform}},null,2)],{type:"application/json"});
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);
+  a.download="shortverse-data.json";
+  a.click();
+  URL.revokeObjectURL(a.href);
+});
+
+// Admin Panel Actions
+$("#saveKeysBtn").addEventListener("click",()=>{
+  state.ytKey=$("#ytKeyInput").value.trim();
+  state.ttKey=$("#ttKeyInput").value.trim();
+  localStorage.setItem("sv_yt_key",state.ytKey);
+  localStorage.setItem("sv_tt_key",state.ttKey);
+  updateStatusUI();
+  toast("บันทึก Key ลงใน LocalStorage เรียบร้อย");
+});
+
+$("#clearKeysBtn").addEventListener("click",()=>{
+  state.ytKey=""; state.ttKey="";
+  $("#ytKeyInput").value=""; $("#ttKeyInput").value="";
+  localStorage.removeItem("sv_yt_key");
+  localStorage.removeItem("sv_tt_key");
+  updateStatusUI();
+  toast("ลบ Key จากเบราว์เซอร์เรียบร้อย");
+});
+
+$("#saveBackendBtn").addEventListener("click",()=>{
+  state.backendUrl=$("#backendUrlInput").value.trim();
+  localStorage.setItem("sv_backend_url",state.backendUrl);
+  updateStatusUI();
+  toast("บันทึก Backend Endpoint แล้ว");
+});
+
+$("#guideYtBtn").addEventListener("click",()=>{
+  openModal("ขั้นตอนขอ YouTube Data API Key", `
+    <ol style="padding-left:18px">
+      <li>เข้าสู่ระบบ <a href="https://console.cloud.google.com/" target="_blank" style="color:var(--red)">Google Cloud Console</a></li>
+      <li>สร้าง Project ใหม่ หรือเลือก Project ที่มีอยู่</li>
+      <li>ไปที่เมนู <strong>APIs & Services &gt; Library</strong></li>
+      <li>ค้นหา <strong>YouTube Data API v3</strong> แล้วกด <strong>Enable</strong></li>
+      <li>ไปที่เมนู <strong>Credentials &gt; Create Credentials &gt; API Key</strong></li>
+      <li>คัดลอก Key นำมาวางที่ช่อง <code>YouTube Data API v3 Key</code> ในหน้านี้</li>
+    </ol>
+  `);
+});
+
+$("#guideTtBtn").addEventListener("click",()=>{
+  openModal("ขั้นตอนขอ TikTok API Key", `
+    <ol style="padding-left:18px">
+      <li>สมัครบัญชีนักพัฒนาที่ <a href="https://developers.tiktok.com/" target="_blank" style="color:var(--red)">TikTok Developers Portal</a></li>
+      <li>กดสร้าง App ใหม่ เลือกหมวดหมู่ <strong>Display API / Content Posting API</strong></li>
+      <li>เมื่ออนุมัติแล้ว คุณจะได้ <strong>Client Key</strong> และ <strong>Client Secret</strong></li>
+      <li>นำ <code>Client Key</code> มาวางในช่อง TikTok Client Key หน้านี้เพื่อเริ่มทดสอบ</li>
+    </ol>
+  `);
+});
+
+$("#modalClose").addEventListener("click",closeModal);
+$("#guideModal").addEventListener("click",e=>{ if(e.target===$("#guideModal")) closeModal(); });
+
+$("#ytKeyInput").value=state.ytKey;
+$("#ttKeyInput").value=state.ttKey;
+$("#backendUrlInput").value=state.backendUrl;
+
+setTheme(state.theme);
+setLang(state.lang);
+setPlatform(state.platform);
+navigate("home");
+</script>
+</body>
+</html>
