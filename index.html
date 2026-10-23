@@ -1,612 +1,87 @@
 <!doctype html>
-<html lang="th">
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#090909">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>SHORTVERSE Hybrid App</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#08090b">
+<title>SNUFF X — Private Cinema</title>
 <style>
-:root{--bg:#080808;--panel:#111214;--panel2:#191a1d;--line:#292b30;--text:#f6f6f7;--muted:#a4a5ad;--red:#ff1744;--red2:#d9002f;--white:#fff;--shadow:0 18px 55px #0008}
-*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}body{background:radial-gradient(ellipse at 70% -20%,#4b0718 0,transparent 35%),var(--bg)}button,input,select,textarea{font:inherit}button{cursor:pointer;color:inherit}.app{min-height:100vh;display:grid;grid-template-columns:250px minmax(0,1fr)}.sidebar{border-right:1px solid var(--line);padding:22px 14px;display:flex;flex-direction:column;gap:22px;background:#090909eF;position:sticky;top:0;height:100vh}.brand{display:flex;align-items:center;gap:10px;padding:0 10px}.brandmark{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,#ff1744,#9d0024);display:grid;place-items:center;box-shadow:0 0 25px #ff17443d}.brandmark svg{width:22px}.brandname{font-weight:900;letter-spacing:.6px;font-size:18px}.brandname span{color:var(--red)}.subbrand{font-size:10px;color:var(--muted);letter-spacing:1.7px;margin-top:3px}.navlabel{font-size:10px;color:#747680;font-weight:800;letter-spacing:1.5px;padding:0 12px;margin:4px 0}.nav{display:grid;gap:5px}.nav button{border:1px solid transparent;background:transparent;padding:12px;border-radius:12px;text-align:left;display:flex;align-items:center;gap:12px;color:#c3c4cb;font-weight:650}.nav button svg{width:19px;height:19px;flex-shrink:0}.nav button:hover{background:#ffffff0a}.nav button.active{background:linear-gradient(90deg,#ff174429,#ff17440b);border-color:#ff17444a;color:#fff}.nav button.active svg{color:var(--red)}.sidebottom{margin-top:auto;display:grid;gap:8px}.mini-row{display:flex;align-items:center;justify-content:space-between;color:var(--muted);font-size:12px;padding:7px 10px}.mini-row select{background:#191a1d;color:#fff;border:1px solid var(--line);border-radius:8px;padding:5px}.main{min-width:0}.topbar{height:76px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 30px;gap:18px;background:#090909b8;backdrop-filter:blur(18px);position:sticky;top:0;z-index:5}.mobile-brand{display:none}.search{max-width:600px;flex:1;display:flex;align-items:center;gap:10px;background:#151619;border:1px solid #303137;border-radius:13px;padding:0 14px;height:44px}.search svg{width:18px;color:#858791;flex-shrink:0}.search input{background:transparent;border:0;outline:0;color:#fff;width:100%;min-width:0}.search button{border:0;background:var(--red);border-radius:9px;padding:7px 12px;font-weight:750}.topactions{display:flex;align-items:center;gap:10px}.iconbtn{height:40px;width:40px;border-radius:12px;background:#151619;border:1px solid var(--line);display:grid;place-items:center}.iconbtn svg{width:18px}.avatar{width:38px;height:38px;border-radius:50%;background:#27272c;border:1px solid #4a4b51;display:grid;place-items:center;font-weight:800}.content{max-width:1600px;margin:auto;padding:28px 30px 90px}.hero{border:1px solid #46202a;background:linear-gradient(115deg,#230811,#111114 58%,#171719);border-radius:24px;padding:28px;display:flex;justify-content:space-between;align-items:center;gap:20px;overflow:hidden;position:relative}.hero:after{content:"";position:absolute;width:280px;height:280px;border:1px solid #ff174422;border-radius:50%;right:10%;top:-140px;box-shadow:0 0 0 35px #ff17440a,0 0 0 70px #ff174406;pointer-events:none}.eyebrow{color:#ff718a;text-transform:uppercase;font-size:11px;letter-spacing:2px;font-weight:850}.hero h1{font-size:clamp(25px,3vw,39px);line-height:1.12;margin:10px 0}.hero p{color:#b7b4ba;max-width:620px;line-height:1.7;margin:0}.hero-art{width:105px;height:105px;flex-shrink:0;border-radius:28px;background:linear-gradient(145deg,#ff1744,#85001f);display:grid;place-items:center;box-shadow:0 10px 45px #ff174433;transform:rotate(5deg)}.hero-art svg{width:48px;height:48px}.sectionhead{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:30px 0 16px}.sectionhead h2{margin:0;font-size:21px}.sectionhead p{color:var(--muted);font-size:13px;margin:6px 0 0}.platforms{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.platform{border:1px solid var(--line);border-radius:20px;background:linear-gradient(145deg,#17181b,#0e0f11);padding:22px;display:flex;gap:16px;align-items:center;min-width:0;transition:.2s;cursor:pointer;text-align:left}.platform:hover{transform:translateY(-2px);border-color:#6b303b}.platform.selected{border-color:var(--red);box-shadow:inset 0 0 0 1px #ff17443a,0 10px 30px #ff17440b}.platform-icon{width:58px;height:58px;border-radius:17px;display:grid;place-items:center;flex-shrink:0;background:#ff17441c;color:var(--red)}.platform.tiktok .platform-icon{background:#fff;color:#080808}.platform-icon svg{width:29px;height:29px}.platform h3{margin:0 0 6px;font-size:17px}.platform p{margin:0;color:var(--muted);font-size:12px;line-height:1.5}.platform .chevron{margin-left:auto;color:#888}.pill{font-size:10px;padding:5px 8px;border-radius:99px;background:#292a2e;color:#bfc0c7;display:inline-flex;margin-top:10px}.pill.red{background:#ff17441b;color:#ff718a}.pill.green{background:#29d39122;color:#29d391}.modebar{display:flex;gap:8px;flex-wrap:wrap}.modebtn{border:1px solid var(--line);background:#141518;border-radius:11px;padding:10px 15px;color:#c5c6cc;font-weight:750;display:flex;align-items:center;gap:9px}.modebtn.active{background:var(--red);border-color:var(--red);color:white;box-shadow:0 6px 20px #ff174426}.modebtn svg{width:18px;height:18px}.feed-layout{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(250px,.8fr);gap:18px}.panel{border:1px solid var(--line);background:#111214;border-radius:18px;padding:20px;min-width:0}.panel h3{margin:0 0 8px;font-size:16px}.muted{color:var(--muted)}.viewer{min-height:380px;border-radius:16px;background:linear-gradient(160deg,#171719,#09090a);border:1px dashed #3a3b41;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:28px;gap:12px;position:relative;overflow:hidden}.viewer-icon{width:64px;height:64px;border-radius:20px;background:#ff17441c;color:var(--red);display:grid;place-items:center}.viewer-icon svg{width:30px;height:30px}.viewer h3{font-size:18px;margin:4px 0}.viewer p{color:var(--muted);font-size:13px;line-height:1.7;max-width:420px;margin:0}.btn{border:0;background:var(--red);padding:11px 16px;border-radius:11px;color:white;font-weight:800;display:inline-flex;align-items:center;justify-content:center;gap:8px;cursor:pointer}.btn:hover{background:#e90032}.btn.secondary{background:#202125;border:1px solid #383940;color:#fff}.btn.ghost{background:transparent;border:1px solid var(--line);color:#ddd}.field{display:grid;gap:7px;margin:14px 0}.field label{font-size:12px;color:#c7c8ce;font-weight:700}.field input,.field select,.field textarea{width:100%;border:1px solid #34353b;background:#090a0c;border-radius:10px;padding:12px;color:#fff;outline:none}.field input:focus,.field textarea:focus{border-color:var(--red)}.field small{color:var(--muted);line-height:1.6}.status{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);margin:12px 0}.dot{width:7px;height:7px;background:#e7a73d;border-radius:50%;display:inline-block}.dot.green{background:#29d391}.page{display:none}.page.active{display:block}.emptylist{border:1px dashed #36373c;border-radius:14px;padding:24px;text-align:center;color:var(--muted);font-size:13px;line-height:1.7}.settingrow{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 0;border-bottom:1px solid var(--line)}.settingrow:last-child{border-bottom:0}.settingrow strong{display:block;font-size:14px}.settingrow small{display:block;color:var(--muted);font-size:12px;margin-top:5px}.notice{border:1px solid #765622;background:#332710;color:#f4d79c;padding:13px;border-radius:12px;font-size:12px;line-height:1.65}.notice.rednotice{border-color:#672536;background:#2b1018;color:#ffb2c0}.notice.greennotice{border-color:#1c5238;background:#0b261a;color:#a3f3ca}.rowwrap{display:flex;gap:10px;flex-wrap:wrap}.bottomnav{display:none}.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:#242529;border:1px solid #46474d;border-radius:12px;padding:12px 16px;box-shadow:var(--shadow);font-size:13px;opacity:0;pointer-events:none;transition:.2s;z-index:20;max-width:90vw}.toast.show{opacity:1;transform:translate(-50%,0)}.modal-backdrop{position:fixed;inset:0;background:#000000a6;backdrop-filter:blur(6px);z-index:100;display:grid;place-items:center;padding:16px;opacity:0;pointer-events:none;transition:.2s}.modal-backdrop.show{opacity:1;pointer-events:auto}.modal{background:#141518;border:1px solid #32343c;border-radius:20px;max-width:580px;width:100%;max-height:90vh;overflow-y:auto;padding:24px;box-shadow:var(--shadow)}.modal h3{margin:0 0 12px;font-size:20px;display:flex;align-items:center;justify-content:space-between}.modal-close{border:0;background:transparent;color:#a4a5ad;font-size:20px;padding:4px}.code-block{background:#090a0c;border:1px solid #282930;border-radius:10px;padding:12px;font-family:monospace;font-size:12px;color:#4af;white-space:pre-wrap;overflow-x:auto}.light{--bg:#f5f5f7;--panel:#fff;--panel2:#f0f0f3;--line:#dedee4;--text:#151519;--muted:#666873;background:radial-gradient(ellipse at 70% -20%,#ffd9e0 0,transparent 35%),var(--bg)}.light .sidebar,.light .topbar,.light .modal{background:#ffffffed;color:#111}.light .brandname,.light .topbar,.light .nav button{color:var(--text)}.light .search,.light .iconbtn,.light .platform,.light .panel{background:#fff}.light .search input,.light .field input,.light .field select,.light .field textarea{color:#111;background:#fff}.light .hero{background:linear-gradient(115deg,#ffe5eb,#fff 65%,#f7f7f8)}.light .hero p{color:#5e5960}.light .modebtn{background:#fff;color:#333}.light .modebtn.active{background:var(--red);color:#fff}.light .viewer{background:#f7f7f8}.light .field input,.light .field textarea{border-color:#d7d7de}.light .code-block{background:#f0f1f5;color:#005cc5;border-color:#d0d1d9}
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+:root{--bg:#070809;--panel:#0c0e11;--panel2:#111419;--line:#252a31;--text:#e8edf3;--muted:#84909e;--red:#ff1838;--red2:#a90020;--cyan:#8da9ba;--shadow:0 18px 60px #0009}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 65% -20%,#241018 0,transparent 42%),var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;min-height:100vh}button,input,select,textarea{font:inherit}button{cursor:pointer}.app{display:grid;grid-template-columns:228px minmax(0,1fr);min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;border-right:1px solid var(--line);padding:26px 16px 18px;background:#070809eF;display:flex;flex-direction:column;z-index:5}.brand{font:500 30px Cinzel,serif;letter-spacing:5px;padding:7px 10px 34px;white-space:nowrap}.brand b{color:var(--red);font-size:40px;text-shadow:0 0 22px #ff183877}.nav{display:grid;gap:7px}.nav button,.bottom-nav button{border:1px solid transparent;background:transparent;color:#a6b0bc;padding:13px 12px;border-radius:9px;text-align:left;display:flex;align-items:center;gap:13px;transition:.2s}.nav button:hover,.nav button.active{background:linear-gradient(90deg,#a900202b,transparent);border-color:#ff183833;color:#fff}.nav button.active{box-shadow:inset 3px 0 var(--red)}.ico{width:21px;text-align:center;font-size:18px;color:var(--cyan)}.nav button.active .ico{color:var(--red)}.side-bottom{margin-top:auto}.mode{display:flex;align-items:center;justify-content:space-between;padding:13px 10px;color:var(--muted);font-size:12px;border:1px solid var(--line);border-radius:10px}.switch{appearance:none;width:34px;height:18px;border-radius:99px;background:#363c45;position:relative;cursor:pointer}.switch:checked{background:var(--red)}.switch:before{content:'';position:absolute;left:3px;top:3px;width:12px;height:12px;border-radius:50%;background:white;transition:.2s}.switch:checked:before{left:19px}.side-caption{font:12px Cinzel,serif;letter-spacing:3px;color:#77808a;padding:26px 8px 4px}.main{min-width:0}.topbar{height:76px;display:flex;align-items:center;gap:16px;padding:0 28px;border-bottom:1px solid var(--line);background:#08090bdc;position:sticky;top:0;z-index:4;backdrop-filter:blur(18px)}.search{max-width:620px;flex:1;position:relative}.search input{width:100%;padding:13px 15px 13px 42px;border:1px solid #252a31;border-radius:30px;background:#0b0d10;color:var(--text);outline:none}.search input:focus,.field input:focus,.field textarea:focus,.field select:focus{border-color:#ff183877;box-shadow:0 0 0 3px #ff183811}.search span{position:absolute;left:15px;top:11px;color:var(--muted)}.top-actions{margin-left:auto;display:flex;gap:10px;align-items:center;color:#c7cdd5;font-size:13px}.round{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:#101216;color:#dbe1e8}.mobile-brand,.mobile-menu{display:none}.content{padding:24px 28px 60px;max-width:1700px;margin:auto}.hero{min-height:320px;border:1px solid #242a31;border-radius:14px;overflow:hidden;position:relative;display:flex;align-items:center;background:linear-gradient(90deg,#050608 0%,#050608ed 29%,#05060855 65%,#05060888 100%),url('https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1800&q=85') center 42%/cover;box-shadow:var(--shadow)}.hero:after{content:'X';position:absolute;right:10%;top:8%;font:clamp(140px,22vw,290px) Cinzel,serif;color:#ff183811;text-shadow:0 0 60px #ff183822;pointer-events:none}.hero-copy{position:relative;z-index:1;padding:36px;max-width:600px}.eyebrow{font-size:10px;letter-spacing:3px;color:var(--red);font-weight:700}.hero h1{font:500 clamp(28px,4vw,48px) Cinzel,serif;letter-spacing:5px;margin:16px 0 12px}.hero p{color:#a2acb8;line-height:1.7;font-size:13px;max-width:390px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.btn{border:1px solid var(--line);background:#111419;color:#e8edf3;padding:11px 15px;border-radius:7px;font-size:12px;display:inline-flex;gap:8px;align-items:center;justify-content:center}.btn:hover{border-color:#ff183877}.btn.primary{background:linear-gradient(135deg,#c60025,#7f0018);border-color:#f32340;color:white;box-shadow:0 6px 24px #bd001c2b}.btn.ghost{background:#08090b99}.section{margin-top:30px}.section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;gap:12px}.section-head h2{font:500 19px Cinzel,serif;letter-spacing:1px;margin:0}.section-head h2:before{content:'/';color:var(--red);font:700 24px Inter;margin-right:12px}.section-head small{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:13px}.movie{min-width:0;cursor:pointer;border:1px solid #252a31;border-radius:9px;overflow:hidden;background:#0c0e11;transition:transform .2s,border-color .2s}.movie:hover{transform:translateY(-4px);border-color:#ff183866}.poster{aspect-ratio:2/2.7;position:relative;background:linear-gradient(140deg,#111923,#050607);overflow:hidden;display:flex;align-items:center;justify-content:center}.poster img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}.poster .fallback{font:20px Cinzel,serif;letter-spacing:3px;color:#e4e8ef55;text-align:center;padding:10px}.poster:after{content:'';position:absolute;inset:40% 0 0;background:linear-gradient(transparent,#050607cc)}.poster .tag{position:absolute;z-index:1;left:8px;bottom:8px;font-size:9px;border:1px solid #ffffff55;background:#060708b8;border-radius:3px;padding:4px 6px}.movie-info{padding:10px}.movie-title{font-size:12px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.movie-sub{font-size:10px;color:var(--muted);margin-top:6px;display:flex;justify-content:space-between;gap:5px}.empty{border:1px dashed #303640;border-radius:10px;padding:30px 15px;text-align:center;color:var(--muted);font-size:13px;grid-column:1/-1}.empty strong{display:block;color:#dce1e8;margin-bottom:7px}.layout{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:18px}.right-col{display:grid;gap:16px;align-content:start}.panel{border:1px solid var(--line);background:linear-gradient(150deg,#0c0e11,#08090b);border-radius:11px;padding:17px}.panel h3{font-size:13px;font-weight:500;margin:0 0 15px}.quote{font:17px Cinzel,serif;color:#9aa5b2;line-height:1.6;border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:15px}.quick{display:flex;align-items:center;gap:11px;padding:10px 0;color:#e2e7ec;font-size:12px}.quick-icon{width:36px;height:36px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;color:var(--red);font-size:17px}.quick small{display:block;color:var(--muted);margin-top:4px}.history-item{display:flex;gap:10px;margin-top:13px;cursor:pointer}.mini-poster{width:62px;height:78px;border-radius:6px;background:#11151a;overflow:hidden;flex-shrink:0;display:grid;place-items:center;color:#ff1838}.mini-poster img{width:100%;height:100%;object-fit:cover}.history-text{font-size:11px;min-width:0;flex:1}.history-text div:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin:5px 0 12px}.progress{height:3px;background:#293039;border-radius:4px;overflow:hidden}.progress i{display:block;height:100%;background:var(--red)}.subtle{color:var(--muted);font-size:11px}.page-title{font:500 29px Cinzel,serif;letter-spacing:2px;margin:8px 0}.page-intro{color:var(--muted);font-size:13px;line-height:1.7;margin-bottom:24px}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}.toolbar input,.toolbar select{background:#0c0e11;color:var(--text);border:1px solid var(--line);border-radius:7px;padding:10px 12px;min-width:0}.toolbar input{flex:1;min-width:180px}.toolbar select{max-width:190px}.field{display:grid;gap:7px;margin:13px 0}.field label{font-size:12px;color:#bac3cd}.field input,.field textarea,.field select{width:100%;background:#080a0d;border:1px solid #2a3038;color:var(--text);border-radius:7px;padding:12px;outline:none}.field textarea{min-height:75px;resize:vertical}.form-card{max-width:720px;border:1px solid var(--line);border-radius:12px;background:#0c0e11;padding:22px}.notice{padding:12px 14px;border-radius:7px;border:1px solid #713d1e;background:#24150f;color:#e8bc8e;font-size:12px;line-height:1.6;margin:14px 0}.notice.good{border-color:#1f5940;background:#0d2018;color:#9de2bd}.notice.bad{border-color:#6d2631;background:#250d12;color:#ffb1bc}.player-wrap{background:#030405;border:1px solid var(--line);border-radius:12px;overflow:hidden}.player-stage{min-height:300px;aspect-ratio:16/9;max-height:72vh;display:grid;place-items:center;position:relative;background:#030405}.player-stage video,.player-stage iframe{width:100%;height:100%;position:absolute;inset:0;border:0;object-fit:contain}.player-placeholder{text-align:center;color:var(--muted);padding:30px;max-width:500px}.player-placeholder .big{font-size:38px;color:var(--red);margin-bottom:12px}.player-placeholder h3{color:#e8edf3;font:20px Cinzel,serif}.player-meta{padding:15px;display:flex;gap:15px;align-items:center;flex-wrap:wrap}.player-meta strong{flex:1;min-width:140px}.status{font-size:10px;letter-spacing:.5px;padding:5px 8px;border:1px solid #373e47;border-radius:4px;color:#aeb8c4}.status.ok{color:#9de2bd;border-color:#1f5940}.status.warn{color:#e8bc8e;border-color:#713d1e}.collection-card{min-height:150px;border:1px solid var(--line);border-radius:10px;padding:17px;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(155deg,#161c24,#070809 70%);cursor:pointer}.collection-card b{font:18px Cinzel,serif}.collection-card span{color:var(--muted);font-size:11px;margin-top:7px}.collection-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.modal-backdrop{position:fixed;inset:0;background:#000b;display:none;align-items:center;justify-content:center;padding:16px;z-index:20}.modal-backdrop.open{display:flex}.modal{width:min(560px,100%);max-height:90vh;overflow:auto;background:#0c0e11;border:1px solid #343a43;border-radius:13px;padding:22px;box-shadow:var(--shadow)}.modal-head{display:flex;align-items:center;justify-content:space-between}.modal-head h2{font:20px Cinzel,serif;margin:0}.close{border:0;background:transparent;color:#aeb8c4;font-size:24px}.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#171b20;border:1px solid #414853;padding:12px 16px;border-radius:8px;font-size:12px;z-index:30;transition:.25s}.toast.show{opacity:1;transform:translate(-50%,0)}.mobile-bottom{display:none}.light{--bg:#e9ebef;--panel:#fff;--panel2:#f4f5f7;--line:#cdd2d9;--text:#171a20;--muted:#626c79;background:radial-gradient(ellipse at 65% -20%,#e9bfc8 0,transparent 42%),var(--bg);color:var(--text)}.light .sidebar,.light .topbar{background:#f4f5f7ed}.light .search input,.light .toolbar input,.light .toolbar select,.light .field input,.light .field textarea,.light .field select{background:#fff;color:#171a20}.light .movie,.light .panel,.light .form-card,.light .collection-card{background:#fff}.light .player-wrap,.light .player-stage{background:#08090b}.light .movie-title{color:#171a20}.light .hero{color:#fff}
+@media(max-width:1200px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}.layout{grid-template-columns:minmax(0,1fr) 230px}.content{padding:20px}.topbar{padding:0 20px}.collection-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:850px){.app{grid-template-columns:1fr}.sidebar{display:none}.topbar{height:64px;padding:0 14px;gap:10px}.mobile-brand{display:block;font:500 18px Cinzel,serif;letter-spacing:2px;white-space:nowrap}.mobile-brand b{color:var(--red)}.top-actions .private-label{display:none}.content{padding:15px 14px 90px}.hero{min-height:280px;background-position:58% center}.hero-copy{padding:24px}.hero h1{letter-spacing:3px}.layout{grid-template-columns:1fr}.right-col{grid-template-columns:repeat(2,minmax(0,1fr))}.right-col .panel:first-child{display:none}.grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.collection-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.mobile-bottom{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-around;padding:8px 4px calc(8px + env(safe-area-inset-bottom));background:#08090bf2;border-top:1px solid var(--line);backdrop-filter:blur(18px);z-index:10}.mobile-bottom button{background:transparent;border:0;color:#9ba6b3;font-size:10px;display:grid;gap:4px;justify-items:center;padding:4px 8px}.mobile-bottom button span:first-child{font-size:18px}.mobile-bottom button.active{color:var(--red)}.player-stage{min-height:210px}.top-actions .round:nth-child(1){display:none}}
+@media(max-width:480px){.topbar{flex-wrap:wrap;height:auto;min-height:60px;padding:10px 12px}.mobile-brand{font-size:16px}.search{order:3;flex-basis:100%;max-width:none}.top-actions{margin-left:auto}.content{padding:12px 10px 88px}.hero{min-height:285px}.hero-copy{padding:19px}.hero h1{font-size:26px;letter-spacing:2px}.hero p{font-size:12px;max-width:280px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.movie-info{padding:8px}.movie-title{font-size:11px}.section-head h2{font-size:17px}.right-col{grid-template-columns:1fr}.right-col .panel{display:block}.right-col .panel:first-child{display:none}.toolbar{gap:7px}.toolbar input{flex-basis:100%}.toolbar select{flex:1;max-width:none}.form-card{padding:15px}.player-stage{min-height:190px}.player-meta{padding:12px}.collection-grid{gap:8px}.collection-card{min-height:120px;padding:13px}}
 
-/* New Responsive Embedded Player & Video Cards */
-.url-bar{display:flex;gap:8px;margin-bottom:14px;width:100%}.url-bar input{flex:1;border:1px solid #34353b;background:#090a0c;border-radius:10px;padding:10px 14px;color:#fff;outline:none;font-size:13px}.url-bar input:focus{border-color:var(--red)}.light .url-bar input{background:#fff;color:#111;border-color:#d7d7de}
-.player-container{width:100%;max-width:380px;height:650px;max-height:75vh;margin:0 auto;position:relative;background:#000;border-radius:16px;overflow:hidden;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,0.5)}
-.player-container iframe{width:100%;height:100%;border:0;position:absolute;top:0;left:0;z-index:2}
-.player-loading,.player-error{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;text-align:center;background:#0c0c0e;z-index:1;gap:12px;color:#fff}
-.player-error{z-index:3;background:#141518}.spinner{width:36px;height:36px;border:3px solid rgba(255,23,68,0.2);border-top-color:var(--red);border-radius:50%;animation:spin 0.8s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
-.results-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-top:16px}
-.video-card{background:var(--panel2);border:1px solid var(--line);border-radius:14px;overflow:hidden;cursor:pointer;transition:.2s;display:flex;flex-direction:column}
-.video-card:hover{transform:translateY(-3px);border-color:var(--red)}
-.video-card img{width:100%;aspect-ratio:16/9;object-fit:cover;background:#1e1e22}
-.video-card .card-info{padding:10px 12px;display:flex;flex-direction:column;gap:4px;flex:1}
-.video-card .card-title{font-size:12px;font-weight:700;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;color:var(--text)}
-.video-card .card-channel{font-size:11px;color:var(--muted)}
+/* Local-only login gate: convenience lock, not server-side security */
+.login-screen[hidden]{display:none!important}
+body:not(.authenticated) .app{display:none!important}
+.login-screen{position:fixed;inset:0;z-index:99999;display:grid;place-items:center;padding:22px;background:radial-gradient(ellipse at 50% 20%,#2b0710 0,transparent 42%),#050607;}
+.login-card{width:min(100%,420px);padding:clamp(24px,5vw,42px);border:1px solid #4b1722;border-radius:16px;background:linear-gradient(145deg,#111216f5,#070809f8);box-shadow:0 25px 100px #000c,0 0 45px #ff183814;}
+.login-mark{text-align:center;font:500 clamp(30px,8vw,42px) Cinzel,serif;letter-spacing:7px;color:#e8edf3;text-shadow:0 0 22px #ff183822}.login-mark b{color:var(--red);font-size:1.25em;text-shadow:0 0 24px #ff183888}.login-sub{text-align:center;color:#858d98;font-size:10px;letter-spacing:3px;margin:7px 0 30px}.login-card h1{text-align:center;font:500 18px Cinzel,serif;letter-spacing:3px;margin:0 0 7px}.login-desc{text-align:center;color:var(--muted);font-size:12px;margin-bottom:23px}.login-card .field input{padding:14px}.login-submit{width:100%;margin-top:10px;padding:13px;font-weight:700;letter-spacing:2px}.login-error{min-height:18px;margin-top:12px;color:#ff7186;font-size:12px;text-align:center}.login-foot{text-align:center;color:#525a65;font-size:10px;letter-spacing:1px;margin-top:22px}
 
-@media(max-width:1000px){.app{grid-template-columns:210px minmax(0,1fr)}.sidebar{padding:18px 10px}.content{padding:22px 20px 90px}.topbar{padding:0 20px}.feed-layout{grid-template-columns:1fr}.viewer{min-height:330px}}
-@media(max-width:700px){.app{display:block}.sidebar{display:none}.topbar{height:62px;padding:0 14px;gap:10px}.mobile-brand{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:900;white-space:nowrap}.mobile-brand .brandmark{width:32px;height:32px;border-radius:10px}.mobile-brand .brandmark svg{width:18px}.topbar>.search{height:38px;padding:0 10px}.topbar>.search input{font-size:12px}.topbar>.search button{display:none}.topactions{gap:6px}.topactions .iconbtn{height:36px;width:36px}.topactions .avatar{display:none}.content{padding:16px 13px 100px}.hero{padding:21px 18px;border-radius:19px}.hero-art{display:none}.eyebrow{font-size:9px}.sectionhead{margin:24px 0 13px}.sectionhead h2{font-size:18px}.sectionhead p{font-size:12px}.platforms{grid-template-columns:1fr;gap:10px}.platform{padding:15px;border-radius:16px;gap:12px}.platform-icon{width:48px;height:48px;border-radius:14px}.platform h3{font-size:15px}.platform p{font-size:11px}.modebar{display:grid;grid-template-columns:1fr 1fr}.modebtn{justify-content:center;padding:10px 7px;font-size:12px}.panel{padding:15px}.viewer{min-height:300px;padding:16px}.player-container{height:520px}.bottomnav{display:flex;position:fixed;z-index:10;bottom:0;left:0;right:0;padding:8px 5px calc(8px + env(safe-area-inset-bottom));justify-content:space-around;background:#0c0c0df2;border-top:1px solid #28292e;backdrop-filter:blur(18px)}.bottomnav button{border:0;background:transparent;color:#92939b;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;min-width:54px;padding:5px 4px}.bottomnav button svg{width:19px;height:19px}.bottomnav button.active{color:#ff365d}.settingrow{align-items:flex-start}.light .bottomnav{background:#fffffff2;border-color:#ddd}.light .bottomnav button{color:#666}.light .bottomnav button.active{color:var(--red)}}
-</style>
-</head>
+</style></head>
 <body>
-<div class="app">
-<aside class="sidebar">
-  <div class="brand"><div class="brandmark"><svg viewBox="0 0 24 24" fill="none"><path d="M8 5.8c0-.8.9-1.3 1.6-.9l9.1 5.2a1 1 0 0 1 0 1.8l-9.1 5.2c-.7.4-1.6-.1-1.6-.9V5.8Z" stroke="white" stroke-width="2" fill="#fff2"/></svg></div><div><div class="brandname">SHORT<span>VERSE</span></div><div class="subbrand">HYBRID APP</div></div></div>
-  <div><div class="navlabel" data-i18n="workspace">WORKSPACE</div><nav class="nav">
-    <button class="active" data-page="home"><svg viewBox="0 0 24 24" fill="none"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1V10Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span data-i18n="home">หน้าแรก</span></button>
-    <button data-page="watch" data-platform="youtube"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="5" width="20" height="14" rx="4" fill="currentColor"/><path d="m10 9 5 3-5 3V9Z" fill="#111"/></svg><span>YouTube Shorts</span></button>
-    <button data-page="watch" data-platform="tiktok"><svg viewBox="0 0 24 24" fill="none"><path d="M14 3v11.2a4.2 4.2 0 1 1-3-4V7.1a8 8 0 1 0 7 7.9V9.8c1.5 1.1 3.1 1.7 4 1.8V7.8c-3.7-.2-5.8-2.4-6-4.8H14Z" fill="currentColor"/></svg><span>TikTok</span></button>
-    <button data-page="favorites"><svg viewBox="0 0 24 24" fill="none"><path d="M20.8 8.8c0 5.1-8.8 11-8.8 11s-8.8-5.9-8.8-11A4.6 4.6 0 0 1 12 6.2a4.6 4.6 0 0 1 8.8 2.6Z" stroke="currentColor" stroke-width="1.8"/></svg><span data-i18n="favorites">รายการโปรด</span></button>
-    <button data-page="collections"><svg viewBox="0 0 24 24" fill="none"><path d="M4 4h6l2 2h8v14H4V4Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span data-i18n="collections">คอลเลกชัน</span></button>
-    <button data-page="history"><svg viewBox="0 0 24 24" fill="none"><path d="M3 12a9 9 0 1 0 2.6-6.4L3 8m0-5v5h5m4-1v5l4 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="history">ประวัติการดู</span></button>
-  </nav></div>
-  <div><div class="navlabel" data-i18n="preferences">PREFERENCES</div><nav class="nav">
-    <button data-page="settings"><svg viewBox="0 0 24 24" fill="none"><path d="M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7ZM19 13.5l2 1.5-2 3.5-2.4-1a7.5 7.5 0 0 1-2 1.2L14 21h-4l-.6-2.3a7.5 7.5 0 0 1-2-1.2l-2.4 1L3 15l2-1.5a7.8 7.8 0 0 1 0-2.4L3 9.5 5 6l2.4 1a7.5 7.5 0 0 1 2-1.2L10 3h4l.6 2.8a7.5 7.5 0 0 1 2 1.2L19 6l2 3.5-2 1.6a7.8 7.8 0 0 1 0-2.4Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg><span data-i18n="settings">ตั้งค่า</span></button>
-    <button data-page="admin"><svg viewBox="0 0 24 24" fill="none"><path d="M7 14a4 4 0 1 1 3.7-2.5L21 11v4h-3v3h-4v-3h-2.3A4 4 0 0 1 7 14Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span>Admin / API</span></button>
-  </nav></div>
-  <div class="sidebottom"><div class="mini-row"><span data-i18n="language">ภาษา</span><select id="lang"><option value="th">ไทย</option><option value="en">English</option></select></div><div class="mini-row"><span data-i18n="appearance">ธีม</span><select id="theme"><option value="dark">มืด</option><option value="light">สว่าง</option></select></div><div class="mini-row"><span>SHORTVERSE</span><span>v1.0 Ready</span></div></div>
-</aside>
-<main class="main">
-<header class="topbar">
-  <div class="mobile-brand"><div class="brandmark"><svg viewBox="0 0 24 24" fill="none"><path d="M8 5.8c0-.8.9-1.3 1.6-.9l9.1 5.2a1 1 0 0 1 0 1.8l-9.1 5.2c-.7.4-1.6-.1-1.6-.9V5.8Z" stroke="white" stroke-width="2" fill="#fff2"/></svg></div><span>SHORT<span style="color:#ff1744">VERSE</span></span></div>
-  <form class="search" id="searchForm"><svg viewBox="0 0 24 24" fill="none"><circle cx="10.8" cy="10.8" r="6.8" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><input id="searchInput" placeholder="ค้นหาในแพลตฟอร์มที่เลือก..." aria-label="Search"><button type="submit" data-i18n="search">ค้นหา</button></form>
-  <div class="topactions"><button class="iconbtn" id="themeQuick" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none"><path d="M20 15.5A8 8 0 0 1 8.5 4 8.5 8.5 0 1 0 20 15.5Z" stroke="currentColor" stroke-width="1.8"/></svg></button><button class="iconbtn" id="langQuick" aria-label="Switch language"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18" stroke="currentColor" stroke-width="1.4"/></svg></button><div class="avatar">S</div></div>
-</header>
-<div class="content">
-<section class="page active" id="page-home">
-  <div class="hero"><div><div class="eyebrow" data-i18n="heroeyebrow">YOUR PERSONAL SHORT VIDEO HUB</div><h1 data-i18n="heroTitle">คลิปที่คุณชอบ<br>ในพื้นที่ของคุณ</h1><p data-i18n="heroDesc">เลือกแพลตฟอร์มที่ต้องการรับชม เชื่อมบัญชีของคุณ และจัดการรายการโปรดได้จากคอมพิวเตอร์หรือมือถือ</p></div><div class="hero-art"><svg viewBox="0 0 24 24" fill="none"><path d="M8 5.8c0-.8.9-1.3 1.6-.9l9.1 5.2a1 1 0 0 1 0 1.8l-9.1 5.2c-.7.4-1.6-.1-1.6-.9V5.8Z" stroke="white" stroke-width="1.8" fill="#fff2"/></svg></div></div>
-  <div class="sectionhead"><div><h2 data-i18n="choosePlatform">เลือกแพลตฟอร์ม</h2><p data-i18n="chooseDesc">เลือกดูทีละแพลตฟอร์ม ไม่แสดงคลิปปะปนกัน</p></div></div>
-  <div class="platforms">
-    <button class="platform selected" data-choose="youtube"><div class="platform-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg></div><div><h3>YouTube Shorts</h3><p data-i18n="ytDesc">วิดีโอสั้นจาก YouTube</p><span class="pill red" data-i18n="selectMode">เลือกโหมดนี้</span></div><svg class="chevron" viewBox="0 0 24 24" fill="none"><path d="m9 18 6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
-    <button class="platform tiktok" data-choose="tiktok"><div class="platform-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.6 5.7a5.4 5.4 0 0 1-3.3-3.3A5.8 5.8 0 0 1 16 1h-4v14.2a3.2 3.2 0 1 1-2.2-3V8.1a7.3 7.3 0 1 0 6.2 7.2V8.1a9.2 9.2 0 0 0 5.2 1.6V5.8c-.5 0-1.1 0-1.6-.1Z"/></svg></div><div><h3>TikTok</h3><p data-i18n="ttDesc">วิดีโอจากบัญชี TikTok</p><span class="pill" data-i18n="switchMode">สลับไปดูได้</span></div><svg class="chevron" viewBox="0 0 24 24" fill="none"><path d="m9 18 6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
-  </div>
-  <div class="sectionhead"><div><h2 data-i18n="workspaceTitle">พื้นที่รับชม</h2><p data-i18n="workspaceDesc">เลือกแหล่งวิดีโอ แล้วเริ่มเชื่อมต่อบัญชีของคุณ</p></div><div class="modebar"><button class="modebtn active" data-mode="youtube">▶ YouTube Shorts</button><button class="modebtn" data-mode="tiktok">♪ TikTok</button></div></div>
-  <div class="feed-layout">
-    <div class="panel">
-      <div class="url-bar">
-        <input type="url" id="homeVideoUrl" placeholder="วางลิงก์ YouTube Shorts หรือ TikTok เพื่อเล่นในเว็บ...">
-        <button class="btn" id="homePlayBtn">เล่นวิดีโอ</button>
-      </div>
-      <div class="viewer" id="homeViewer">
-        <div class="viewer-icon" id="viewerIcon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg></div>
-        <h3 id="viewerTitle">YouTube Shorts</h3>
-        <p id="viewerDesc">วาง URL ลิงก์วิดีโอ YouTube Shorts หรือ TikTok ในช่องด้านบนเพื่อรับชม หรือค้นหาจากช่องค้นหา</p>
-        <div class="rowwrap"><button class="btn" id="connectBtn">ตั้งค่าการเชื่อมต่อ</button><button class="btn secondary" id="openOriginal">เปิดแพลตฟอร์มต้นฉบับ ↗</button></div>
-      </div>
-      <div id="homeSearchResults" class="results-grid"></div>
-    </div>
-    <div class="panel"><h3 data-i18n="accountStatus">สถานะบัญชี</h3><div class="status"><span class="dot" id="liveDot"></span><span id="statusText">ยังไม่ได้เชื่อมต่อ</span></div><div class="notice rednotice" data-i18n="feedNotice">ข้อจำกัดที่ต้องทราบ: API สาธารณะไม่ได้รับประกันการดึงฟีดแนะนำส่วนตัวเหมือนแอปต้นฉบับ</div><div class="settingrow"><div><strong data-i18n="personalFeed">ฟีดส่วนตัว</strong><small data-i18n="personalFeedDesc">ต้องตรวจสอบสิทธิ์ API ที่มีจริง</small></div><span class="pill" id="feedPill">NOT VERIFIED</span></div><div class="settingrow"><div><strong data-i18n="crossDevice">ซิงก์หลายอุปกรณ์</strong><small data-i18n="crossDeviceDesc">ต้องมี Backend และฐานข้อมูล</small></div><span class="pill">NOT CONFIGURED</span></div></div>
-  </div>
-</section>
-
-<section class="page" id="page-watch">
-  <div class="sectionhead"><div><h2 id="watchHeading">YouTube Shorts</h2><p data-i18n="watchSub">เลือกแพลตฟอร์มเดียวสำหรับพื้นที่รับชมนี้</p></div></div>
-  <div class="modebar" style="margin-bottom:18px"><button class="modebtn active" data-mode="youtube">▶ YouTube Shorts</button><button class="modebtn" data-mode="tiktok">♪ TikTok</button></div>
-  <div class="feed-layout">
-    <div class="panel">
-      <div class="url-bar">
-        <input type="url" id="watchVideoUrl" placeholder="วางลิงก์ YouTube Shorts หรือ TikTok เพื่อเล่นในเว็บ...">
-        <button class="btn" id="watchPlayBtn">เล่นวิดีโอ</button>
-      </div>
-      <div class="viewer" id="watchViewer">
-        <div class="viewer-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm-2 14V8l6 4-6 4Z"/></svg></div>
-        <h3 id="watchViewerTitle">รับชมวิดีโอภายในเว็บ</h3>
-        <p id="watchViewerDesc">วาง URL วิดีโอ หรือค้นหาวิดีโอที่ต้องการรับชมได้ทันที</p>
-        <div class="rowwrap"><button class="btn" id="watchConnect">ตั้งค่าการเชื่อมต่อ</button><button class="btn secondary" id="watchOriginal">เปิดต้นฉบับ ↗</button></div>
-      </div>
-      <div id="watchSearchResults" class="results-grid"></div>
-    </div>
-    <div class="panel"><h3 data-i18n="whatAvailable">สิ่งที่รองรับ</h3><div class="settingrow"><div><strong>API / Embed</strong><small data-i18n="availableDesc">แสดงข้อมูลที่ API อนุญาตและตรวจสอบได้</small></div></div><div class="settingrow"><div><strong data-i18n="originalExperience">ประสบการณ์ต้นฉบับ</strong><small data-i18n="originalDesc">เปิดเว็บไซต์หรือแอปของแพลตฟอร์ม</small></div></div><div class="notice">ไม่เก็บรหัสผ่านของ YouTube หรือ TikTok ใน SHORTVERSE</div></div>
-  </div>
-</section>
-
-<section class="page" id="page-favorites"><div class="sectionhead"><div><h2 data-i18n="favorites">รายการโปรด</h2><p data-i18n="favoritesDesc">บันทึกลิงก์วิดีโอไว้เปิดดูภายหลัง</p></div><button class="btn" id="addFavorite">＋ <span data-i18n="addLink">เพิ่มลิงก์</span></button></div><div class="panel"><div id="favoritesList" class="emptylist">ยังไม่มีรายการโปรด กด “เพิ่มลิงก์” เพื่อบันทึกลิงก์วิดีโอที่คุณต้องการ</div></div></section>
-<section class="page" id="page-collections"><div class="sectionhead"><div><h2 data-i18n="collections">คอลเลกชัน</h2><p data-i18n="collectionsDesc">จัดกลุ่มลิงก์ที่คุณบันทึกไว้</p></div></div><div class="panel"><div class="emptylist" data-i18n="collectionsEmpty">ยังไม่มีคอลเลกชัน สามารถเพิ่มระบบจัดการคอลเลกชันในขั้นตอนเชื่อมฐานข้อมูล</div></div></section>
-<section class="page" id="page-history"><div class="sectionhead"><div><h2 data-i18n="history">ประวัติการดู</h2><p data-i18n="historyDesc">รายการลิงก์ที่เปิดจาก SHORTVERSE บนอุปกรณ์นี้</p></div><button class="btn secondary" id="clearHistory" data-i18n="clearHistory">ล้างประวัติ</button></div><div class="panel"><div id="historyList" class="emptylist">ยังไม่มีประวัติ</div></div></section>
-<section class="page" id="page-settings"><div class="sectionhead"><div><h2 data-i18n="settings">ตั้งค่า</h2><p data-i18n="settingsDesc">ตั้งค่าประสบการณ์ใช้งานของคุณ</p></div></div><div class="panel"><div class="settingrow"><div><strong data-i18n="language">ภาษา</strong><small data-i18n="languageDesc">เลือกภาษาของหน้าจอ</small></div><select id="langSetting"><option value="th">ไทย</option><option value="en">English</option></select></div><div class="settingrow"><div><strong data-i18n="appearance">ธีม</strong><small data-i18n="themeDesc">เลือกโหมดมืดหรือสว่าง</small></div><select id="themeSetting"><option value="dark">มืด</option><option value="light">สว่าง</option></select></div><div class="settingrow"><div><strong data-i18n="selectedPlatform">แพลตฟอร์มเริ่มต้น</strong><small data-i18n="selectedPlatformDesc">เลือกโหมดที่เปิดเมื่อเข้าแอป</small></div><select id="defaultPlatform"><option value="youtube">YouTube Shorts</option><option value="tiktok">TikTok</option></select></div><div class="settingrow"><div><strong data-i18n="localData">ข้อมูลในอุปกรณ์นี้</strong><small data-i18n="localDataDesc">รายการโปรดและการตั้งค่าถูกเก็บในเบราว์เซอร์นี้เท่านั้น</small></div><button class="btn secondary" id="exportData" data-i18n="exportData">ส่งออก JSON</button></div></div></section>
-<section class="page" id="page-admin">
-  <div class="sectionhead"><div><h2>Admin / API Settings</h2><p data-i18n="adminDesc">ตั้งค่าการเชื่อมต่อ API สำหรับผู้พัฒนาและเจ้าของแอป</p></div></div>
-  
-  <div class="notice rednotice" style="margin-bottom:16px">
-    <strong>ข้อควรระวังความปลอดภัย:</strong> ในระบบจริง (Production) ควรตั้งค่า API Key ไว้ที่ Backend Server / Environment Variable เท่านั้น ไม่ควรฝัง Secret Key ลงใน Client-side HTML/JS
-  </div>
-
-  <div class="panel">
-    <h3>1. ตั้งค่า Local Browser API Key (สำหรับทดสอบ Client-Side)</h3>
-    <p class="muted" style="font-size:13px">คุณสามารถบันทึก Key ลงใน LocalStorage ของเบราว์เซอร์เครื่องนี้เพื่อใช้ทดสอบการดึงข้อมูลชั่วคราวได้</p>
-    
-    <div class="field">
-      <label>YouTube Data API v3 Key</label>
-      <input type="password" id="ytKeyInput" placeholder="AIzaSy...">
-      <small>รับ Key ได้จาก Google Cloud Console (เปิดใช้งาน YouTube Data API v3)</small>
-    </div>
-
-    <div class="field">
-      <label>TikTok Client Key / App ID</label>
-      <input type="text" id="ttKeyInput" placeholder="aw...">
-      <small>รับ Key ได้จาก TikTok Developers Portal</small>
-    </div>
-
-    <div class="rowwrap" style="margin-top:14px">
-      <button class="btn" id="saveKeysBtn">บันทึก Key ลงเครื่องนี้</button>
-      <button class="btn secondary" id="clearKeysBtn">ลบ Key ที่บันทึกไว้</button>
-    </div>
-  </div>
-
-  <div class="panel" style="margin-top:16px">
-    <h3>2. การตั้งค่า Backend Proxy URL (สำหรับระบบ Production)</h3>
-    <div class="field">
-      <label>Backend API Endpoint URL</label>
-      <input type="url" id="backendUrlInput" placeholder="https://api.yourdomain.com/v1">
-      <small>เซิร์ฟเวอร์ฝั่ง Node.js / Python / Go ที่ทำหน้าที่ซ่อน API Key และจัดการ OAuth Access Token</small>
-    </div>
-    <button class="btn secondary" id="saveBackendBtn">บันทึก Backend Endpoint</button>
-  </div>
-
-  <div class="panel" style="margin-top:16px">
-    <h3>คำแนะนำขั้นตอนการขอ API Key</h3>
-    <div class="rowwrap">
-      <button class="btn ghost" id="guideYtBtn">วิธีขอ YouTube API Key ↗</button>
-      <button class="btn ghost" id="guideTtBtn">วิธีขอ TikTok API Key ↗</button>
-    </div>
-  </div>
-</section>
+<div class="login-screen" id="loginScreen">
+  <form class="login-card" id="loginForm" autocomplete="on">
+    <div class="login-mark">SNUFF <b>X</b></div>
+    <div class="login-sub">YOUR PRIVATE CINEMA</div>
+    <h1>PRIVATE ACCESS</h1>
+    <div class="login-desc">Sign in to enter your personal library.</div>
+    <div class="field"><label for="loginUser">USERNAME</label><input id="loginUser" name="username" autocomplete="username" required autocapitalize="none" spellcheck="false" placeholder="Enter username"></div>
+    <div class="field"><label for="loginPass">PASSWORD</label><input id="loginPass" name="password" type="password" autocomplete="current-password" required placeholder="Enter password"></div>
+    <button class="btn primary login-submit" type="submit">UNLOCK LIBRARY&nbsp; ↗</button>
+    <div class="login-error" id="loginError" role="alert" aria-live="polite"></div>
+    <div class="login-foot">PRIVATE SESSION · SNUFF X</div>
+  </form>
 </div>
-</main>
-</div>
-
-<nav class="bottomnav">
-<button class="active" data-page="home"><svg viewBox="0 0 24 24" fill="none"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1V10Z" stroke="currentColor" stroke-width="1.8"/></svg><span data-i18n="home">หน้าแรก</span></button>
-<button data-page="watch" data-platform="youtube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 7a3 3 0 0 0-2-2C19 4.5 12 4.5 12 4.5S5 4.5 3 5a3 3 0 0 0-2 2 25 25 0 0 0 0 10 3 3 0 0 0 2 2c2 .5 9 .5 9 .5s7 0 9-.5a3 3 0 0 0 2-2 25 25 0 0 0 0-10ZM10 15.5v-7l6 3.5-6 3.5Z"/></svg><span>Shorts</span></button>
-<button data-page="favorites"><svg viewBox="0 0 24 24" fill="none"><path d="M20.8 8.8c0 5.1-8.8 11-8.8 11s-8.8-5.9-8.8-11A4.6 4.6 0 0 1 12 6.2a4.6 4.6 0 0 1 8.8 2.6Z" stroke="currentColor" stroke-width="1.8"/></svg><span data-i18n="favorites">โปรด</span></button>
-<button data-page="settings"><svg viewBox="0 0 24 24" fill="none"><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm0-6v3m0 14v3M2 12h3m14 0h3M4.9 4.9 7 7m10 10 2.1 2.1m0-14.2L17 7M7 17l-2.1 2.1" stroke="currentColor" stroke-width="1.7"/></svg><span data-i18n="settings">ตั้งค่า</span></button>
-</nav>
-
-<!-- Modal Guide -->
-<div class="modal-backdrop" id="guideModal">
-  <div class="modal">
-    <h3><span id="modalTitle">คู่มือการตั้งค่า API</span> <button class="modal-close" id="modalClose">&times;</button></h3>
-    <div id="modalBody" style="font-size:13px;line-height:1.7;color:var(--muted)"></div>
-  </div>
-</div>
-
-<div class="toast" id="toast" role="status"></div>
-
+<div class="app"><aside class="sidebar"><div class="brand">SNUFF <b>X</b></div><nav class="nav" id="sideNav"><button class="active" data-page="home"><span class="ico">⌂</span>Home</button><button data-page="library"><span class="ico">▣</span>Library</button><button data-page="collections"><span class="ico">♧</span>Collections</button><button data-page="add"><span class="ico">⊕</span>Add URL</button><button data-page="history"><span class="ico">◴</span>Watch History</button><button data-page="admin"><span class="ico">⚙</span>Admin</button></nav><div class="side-bottom"><div class="mode"><span>☾ &nbsp; Dark Mode</span><input class="switch" type="checkbox" id="themeSwitch" checked aria-label="Toggle dark mode"></div><div class="side-caption">SNUFF <span style="color:var(--red)">X</span></div><div class="subtle" style="padding:0 8px;letter-spacing:2px;font-size:9px;line-height:1.8">YOUR PRIVATE CINEMA<br>ANYTIME. ANYWHERE.</div></div></aside>
+<main class="main"><header class="topbar"><div class="mobile-brand">SNUFF <b>X</b></div><div class="search"><span>⌕</span><input id="globalSearch" placeholder="Search library or paste a URL…" autocomplete="off"></div><div class="top-actions"><button class="round" title="Toggle theme" id="themeQuick">☼</button><button class="round" title="Fullscreen" id="fullBtn">⛶</button><span class="private-label">Private Library</span></div></header><div class="content" id="view"></div></main></div>
+<nav class="mobile-bottom" id="mobileNav"><button class="active" data-page="home"><span>⌂</span>Home</button><button data-page="library"><span>▣</span>Library</button><button data-page="add"><span>⊕</span>Add URL</button><button data-page="collections"><span>♧</span>Collections</button><button data-page="admin"><span>⚙</span>Admin</button></nav>
+<div class="modal-backdrop" id="modalBackdrop"><div class="modal"><div class="modal-head"><h2 id="modalTitle">Add to Library</h2><button class="close" id="modalClose">×</button></div><div id="modalBody"></div></div></div><div class="toast" id="toast"></div>
 <script>
-const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
-const translations={
-th:{workspace:"WORKSPACE",home:"หน้าแรก",favorites:"รายการโปรด",collections:"คอลเลกชัน",history:"ประวัติการดู",preferences:"PREFERENCES",settings:"ตั้งค่า",language:"ภาษา",appearance:"ธีม",heroeyebrow:"YOUR PERSONAL SHORT VIDEO HUB",heroTitle:"คลิปที่คุณชอบ<br>ในพื้นที่ของคุณ",heroDesc:"เลือกแพลตฟอร์มที่ต้องการรับชม เชื่อมบัญชีของคุณ และจัดการรายการโปรดได้จากคอมพิวเตอร์หรือมือถือ",choosePlatform:"เลือกแพลตฟอร์ม",chooseDesc:"เลือกดูทีละแพลตฟอร์ม ไม่แสดงคลิปปะปนกัน",ytDesc:"วิดีโอสั้นจาก YouTube",ttDesc:"วิดีโอจากบัญชี TikTok",selectMode:"เลือกโหมดนี้",switchMode:"สลับไปดูได้",workspaceTitle:"พื้นที่รับชม",workspaceDesc:"เลือกแหล่งวิดีโอ แล้วเริ่มเชื่อมต่อบัญชีของคุณ",search:"ค้นหา",watchSub:"เลือกแพลตฟอร์มเดียวสำหรับพื้นที่รับชมนี้",accountStatus:"สถานะบัญชี",feedNotice:"ข้อจำกัดที่ต้องทราบ: API สาธารณะไม่ได้รับประกันการดึงฟีดแนะนำส่วนตัวเหมือนแอปต้นฉบับ",personalFeed:"ฟีดส่วนตัว",personalFeedDesc:"ต้องตรวจสอบสิทธิ์ API ที่มีจริง",crossDevice:"ซิงก์หลายอุปกรณ์",crossDeviceDesc:"ต้องมี Backend และฐานข้อมูล",whatAvailable:"สิ่งที่รองรับ",availableDesc:"แสดงข้อมูลที่ API อนุญาตและตรวจสอบได้",originalExperience:"ประสบการณ์ต้นฉบับ",originalDesc:"เปิดเว็บไซต์หรือแอปของแพลตฟอร์ม",favoritesDesc:"บันทึกลิงก์วิดีโอไว้เปิดดูภายหลัง",addLink:"เพิ่มลิงก์",collectionsDesc:"จัดกลุ่มลิงก์ที่คุณบันทึกไว้",collectionsEmpty:"ยังไม่มีคอลเลกชัน สามารถเพิ่มระบบจัดการคอลเลกชันในขั้นตอนเชื่อมฐานข้อมูล",historyDesc:"รายการลิงก์ที่เปิดจาก SHORTVERSE บนอุปกรณ์นี้",clearHistory:"ล้างประวัติ",settingsDesc:"ตั้งค่าประสบการณ์ใช้งานของคุณ",languageDesc:"เลือกภาษาของหน้าจอ",themeDesc:"เลือกโหมดมืดหรือสว่าง",selectedPlatform:"แพลตฟอร์มเริ่มต้น",selectedPlatformDesc:"เลือกโหมดที่เปิดเมื่อเข้าแอป",localData:"ข้อมูลในอุปกรณ์นี้",localDataDesc:"รายการโปรดและการตั้งค่าถูกเก็บในเบราว์เซอร์นี้เท่านั้น",exportData:"ส่งออก JSON",adminDesc:"จัดการ API Key และ Backend Endpoint"},
-en:{workspace:"WORKSPACE",home:"Home",favorites:"Favorites",collections:"Collections",history:"Watch history",preferences:"PREFERENCES",settings:"Settings",language:"Language",appearance:"Theme",heroeyebrow:"YOUR PERSONAL SHORT VIDEO HUB",heroTitle:"Your favorite clips<br>in one personal space",heroDesc:"Choose a platform, connect your account, and manage saved links from desktop or mobile.",choosePlatform:"Choose a platform",chooseDesc:"Use one platform at a time. Feeds never mix.",ytDesc:"Short-form videos from YouTube",ttDesc:"Videos from TikTok",selectMode:"Select this mode",switchMode:"Switch to this mode",workspaceTitle:"Watch workspace",workspaceDesc:"Choose a source and configure your connection.",search:"Search",watchSub:"Choose one platform for this viewing space",accountStatus:"Account status",feedNotice:"Important: Public APIs do not guarantee access to personalized feeds exactly as shown in the original apps.",personalFeed:"Personalized feed",personalFeedDesc:"API access must be verified",crossDevice:"Cross-device sync",crossDeviceDesc:"Requires a backend and database",whatAvailable:"Available integration",availableDesc:"Only show data allowed by the platform API",originalExperience:"Original experience",originalDesc:"Open the platform website or app",favoritesDesc:"Save video links to revisit later",addLink:"Add link",collectionsDesc:"Organize saved links",collectionsEmpty:"No collections yet. Collection management can be added with database integration.",historyDesc:"Links opened from SHORTVERSE on this device",clearHistory:"Clear history",settingsDesc:"Customize your experience",languageDesc:"Choose interface language",themeDesc:"Choose dark or light mode",selectedPlatform:"Default platform",selectedPlatformDesc:"Choose which mode opens first",localData:"Local device data",localDataDesc:"Favorites and settings are stored in this browser only",exportData:"Export JSON",adminDesc:"Manage API Keys and Backend Endpoint"}
-};
-
-let state={
-  platform:localStorage.getItem("sv_platform")||"youtube",
-  theme:localStorage.getItem("sv_theme")||"dark",
-  lang:localStorage.getItem("sv_lang")||"th",
-  page:"home",
-  favorites:JSON.parse(localStorage.getItem("sv_favorites")||"[]"),
-  history:JSON.parse(localStorage.getItem("sv_history")||"[]"),
-  ytKey:localStorage.getItem("sv_yt_key")||"",
-  ttKey:localStorage.getItem("sv_tt_key")||"",
-  backendUrl:localStorage.getItem("sv_backend_url")||""
-};
-
-function toast(msg){const t=$("#toast");t.textContent=msg;t.classList.add("show");clearTimeout(window._toastTimer);window._toastTimer=setTimeout(()=>t.classList.remove("show"),2600)}
-function t(k){return (translations[state.lang]||translations.th)[k]||k}
-
-function parseVideoUrl(inputUrl){
-  if(!inputUrl) return null;
-  let urlStr = inputUrl.trim();
-  try {
-    if(!urlStr.startsWith('http://') && !urlStr.startsWith('https://')){
-      urlStr = 'https://' + urlStr;
-    }
-    const u = new URL(urlStr);
-    const host = u.hostname.toLowerCase();
-
-    // YouTube
-    if(host.includes('youtube.com') || host.includes('youtu.be')){
-      let videoId = null;
-      if(u.pathname.includes('/shorts/')){
-        videoId = u.pathname.split('/shorts/')[1].split('/')[0].split('?')[0];
-      } else if(u.pathname.includes('/watch')){
-        videoId = u.searchParams.get('v');
-      } else if(host.includes('youtu.be')){
-        videoId = u.pathname.substring(1).split('/')[0].split('?')[0];
-      }
-      if(videoId) return { platform: 'youtube', id: videoId, originalUrl: inputUrl };
-    }
-
-    // TikTok
-    if(host.includes('tiktok.com')){
-      let videoId = null;
-      const match = u.pathname.match(/\/video\/(\d+)/);
-      if(match && match[1]) videoId = match[1];
-      if(videoId) return { platform: 'tiktok', id: videoId, originalUrl: inputUrl };
-    }
-  } catch(e) {}
-  return null;
-}
-
-function renderPlayerContainer(parsed, targetContainerId){
-  const container = $(targetContainerId);
-  if(!container) return;
-
-  if(!parsed){
-    container.innerHTML = `
-      <div class="player-error">
-        <h3>URL ไม่ถูกต้อง หรือไม่รองรับ</h3>
-        <p>กรุณาตรวจสอบลิงก์ YouTube Shorts หรือ TikTok อีกครั้ง</p>
-      </div>`;
-    return;
-  }
-
-  // Save to Watch History
-  saveHistory(parsed.originalUrl, parsed.platform, parsed.title || parsed.id);
-
-  let iframeSrc = '';
-  if(parsed.platform === 'youtube'){
-    iframeSrc = `https://www.youtube-nocookie.com/embed/${parsed.id}?autoplay=1&rel=0&enablejsapi=1`;
-  } else if(parsed.platform === 'tiktok'){
-    iframeSrc = `https://www.tiktok.com/embed/v2/${parsed.id}`;
-  }
-
-  container.innerHTML = `
-    <div class="player-container">
-      <div class="player-loading"><div class="spinner"></div><span>กำลังโหลดวิดีโอ...</span></div>
-      <iframe src="${iframeSrc}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen onload="this.previousElementSibling.style.display='none'"></iframe>
-    </div>
-    <div class="rowwrap" style="margin-top:12px;justify-content:center">
-      <button class="btn secondary" onclick="retryPlayer('${parsed.originalUrl}', '${targetContainerId}')">🔄 ลองใหม่</button>
-      <button class="btn secondary" onclick="window.open('${escapeAttr(parsed.originalUrl)}','_blank','noopener,noreferrer')">เปิดแอปต้นฉบับ ↗</button>
-      <button class="btn ghost" onclick="saveToFavDirect('${escapeAttr(parsed.originalUrl)}','${parsed.platform}')">♥ บันทึกเป็นโปรด</button>
-    </div>
-  `;
-}
-
-function retryPlayer(url, containerId){
-  const parsed = parseVideoUrl(url);
-  renderPlayerContainer(parsed, containerId);
-}
-
-function saveToFavDirect(url, platform){
-  if(state.favorites.some(f => f.url === url)){
-    toast("มีรายการนี้ในโปรดแล้ว");
-    return;
-  }
-  state.favorites.unshift({ url, title: platform === 'youtube' ? 'YouTube Short' : 'TikTok Video', platform });
-  localStorage.setItem("sv_favorites", JSON.stringify(state.favorites));
-  renderSaved();
-  toast("บันทึกลงรายการโปรดเรียบร้อย");
-}
-
-function saveHistory(url, platform, title){
-  state.history = state.history.filter(h => h.url !== url);
-  state.history.unshift({ url, platform, title, date: new Date().toISOString() });
-  state.history = state.history.slice(0, 100);
-  localStorage.setItem("sv_history", JSON.stringify(state.history));
-  renderSaved();
-}
-
-async function searchYouTube(query, resultsContainerId, targetViewerId){
-  const resultsEl = $(resultsContainerId);
-  if(!resultsEl) return;
-
-  if(!state.ytKey){
-    resultsEl.innerHTML = `<div class="notice rednotice" style="grid-column:1/-1">กรุณาใส่ YouTube Data API v3 Key ในหน้า Admin/API เพื่อเปิดใช้งานระบบค้นหา</div>`;
-    return;
-  }
-
-  resultsEl.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:20px" class="muted"><div class="spinner" style="margin:0 auto 10px"></div>กำลังค้นหา...</div>`;
-
-  try {
-    const res = await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=8&q=${encodeURIComponent(query + " shorts")}&type=video&key=${state.ytKey}`);
-    const data = await res.json();
-    if(data.error){
-      resultsEl.innerHTML = `<div class="notice rednotice" style="grid-column:1/-1">API Error: ${escapeHtml(data.error.message)}</div>`;
-      return;
-    }
-    if(!data.items || !data.items.length){
-      resultsEl.innerHTML = `<div class="emptylist" style="grid-column:1/-1">ไม่พบผลการค้นหา</div>`;
-      return;
-    }
-
-    resultsEl.innerHTML = data.items.map(item => {
-      const vId = item.id.videoId;
-      const title = escapeHtml(item.snippet.title);
-      const ch = escapeHtml(item.snippet.channelTitle);
-      const thumb = item.snippet.thumbnails.high ? item.snippet.thumbnails.high.url : item.snippet.thumbnails.default.url;
-      const shortUrl = `https://www.youtube.com/shorts/${vId}`;
-      return `
-        <div class="video-card" onclick="playSelectedCard('${shortUrl}', '${targetViewerId}')">
-          <img src="${escapeAttr(thumb)}" alt="${title}">
-          <div class="card-info">
-            <div class="card-title">${title}</div>
-            <div class="card-channel">${ch}</div>
-          </div>
-        </div>
-      `;
-    }).join('');
-  } catch(e) {
-    resultsEl.innerHTML = `<div class="notice rednotice" style="grid-column:1/-1">เกิดข้อผิดพลาดในการเชื่อมต่อ API</div>`;
-  }
-}
-
-function playSelectedCard(url, targetViewerId){
-  const parsed = parseVideoUrl(url);
-  renderPlayerContainer(parsed, targetViewerId);
-  window.scrollTo({ top: 0, behavior: "smooth" });
-}
-
-function playVideoInCurrentPage(url){
-  const parsed = parseVideoUrl(url);
-  if(!parsed){
-    toast("URL ไม่ถูกต้อง รองรับ YouTube Shorts หรือ TikTok เท่านั้น");
-    return;
-  }
-  setPlatform(parsed.platform);
-  const viewerId = state.page === "home" ? "#homeViewer" : "#watchViewer";
-  renderPlayerContainer(parsed, viewerId);
-}
-
-function updateStatusUI(){
-  const isY=state.platform==="youtube";
-  const hasKey=isY?!!state.ytKey:!!state.ttKey;
-  const liveDot=$("#liveDot");
-  const statusText=$("#statusText");
-  const feedPill=$("#feedPill");
-
-  if(hasKey||state.backendUrl){
-    if(liveDot) liveDot.className="dot green";
-    if(statusText) statusText.textContent=(isY?"YouTube":"TikTok")+" API Key พร้อมใช้งาน (Local/Backend)";
-    if(feedPill) { feedPill.textContent="CONFIGURED"; feedPill.className="pill green"; }
-  } else {
-    if(liveDot) liveDot.className="dot";
-    if(statusText) statusText.textContent=(isY?"YouTube API":"TikTok OAuth")+" ยังไม่ได้ตั้งค่า Key";
-    if(feedPill) { feedPill.textContent="NOT VERIFIED"; feedPill.className="pill"; }
-  }
-}
-
-function setPlatform(p){
-  state.platform=p;
-  localStorage.setItem("sv_platform",p);
-  $$("[data-mode]").forEach(b=>b.classList.toggle("active",b.dataset.mode===p));
-  $$("[data-choose]").forEach(b=>b.classList.toggle("selected",b.dataset.choose===p));
-  const isY=p==="youtube";
-  
-  $("#viewerTitle").textContent=isY?"YouTube Shorts":"TikTok";
-  $("#watchHeading").textContent=isY?"YouTube Shorts":"TikTok";
-  $("#watchViewerTitle").textContent=isY?(state.ytKey?"YouTube Shorts (API Ready)":"YouTube Shorts — ยังไม่ได้ตั้งค่า Key"):(state.ttKey?"TikTok (API Ready)":"TikTok — ยังไม่ได้ตั้งค่า Key");
-  
-  $("#viewerDesc").textContent=isY?
-    (state.ytKey?"YouTube API Key เชื่อมต่อสำเร็จ พร้อมสำหรับดึงข้อมูลค้นหาและวิดีโอที่ระบุ":"วาง URL ลิงก์วิดีโอ YouTube Shorts หรือ TikTok ในช่องด้านบนเพื่อรับชม หรือค้นหาจากช่องค้นหา"):
-    (state.ttKey?"TikTok Client Key เชื่อมต่อแล้ว":"วาง URL ลิงก์วิดีโอ TikTok ในช่องด้านบนเพื่อรับชมภายในเว็บ");
-  
-  $("#openOriginal").textContent=isY?"เปิด YouTube ↗":"เปิด TikTok ↗";
-  $("#watchOriginal").textContent=isY?"เปิด YouTube ↗":"เปิด TikTok ↗";
-  $("#viewerIcon").innerHTML=isY?'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg>':'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.6 5.7a5.4 5.4 0 0 1-3.3-3.3A5.8 5.8 0 0 1 16 1h-4v14.2a3.2 3.2 0 1 1-2.2-3V8.1a7.3 7.3 0 1 0 6.2 7.2V8.1a9.2 9.2 0 0 0 5.2 1.6V5.8c-.5 0-1.1 0-1.6-.1Z"/></svg>';
-  
-  updateStatusUI();
-  renderSaved();
-}
-
-function navigate(page){
-  state.page=page;
-  $$(".page").forEach(p=>p.classList.toggle("active",p.id==="page-"+page));
-  $$("[data-page]").forEach(b=>b.classList.toggle("active",b.dataset.page===page));
-  if(page==="watch")setPlatform(state.platform);
-  window.scrollTo({top:0,behavior:"smooth"});
-}
-
-function setTheme(v){
-  state.theme=v;
-  document.body.classList.toggle("light",v==="light");
-  localStorage.setItem("sv_theme",v);
-  $("#theme").value=v;
-  $("#themeSetting").value=v;
-}
-
-function setLang(v){
-  state.lang=v;
-  document.documentElement.lang=v;
-  localStorage.setItem("sv_lang",v);
-  $("#lang").value=v;
-  $("#langSetting").value=v;
-  $$("[data-i18n]").forEach(el=>{
-    const key=el.dataset.i18n;
-    if(t(key)!==key)el.innerHTML=t(key);
-  });
-  $("#searchInput").placeholder=v==="th"?"ค้นหาในแพลตฟอร์มที่เลือก...":"Search selected platform...";
-  setPlatform(state.platform);
-}
-
-function originalUrl(){return state.platform==="youtube"?"https://www.youtube.com/shorts/":"https://www.tiktok.com/"}
-function openOriginal(){
-  const url=originalUrl();
-  window.open(url,"_blank","noopener,noreferrer");
-  saveHistory(url, state.platform, "External Link");
-}
-
-function renderSaved(){
-  const fl=$("#favoritesList");
-  if(fl){
-    if(!state.favorites.length)fl.textContent=state.lang==="th"?"ยังไม่มีรายการโปรด กด “เพิ่มลิงก์” เพื่อบันทึกลิงก์วิดีโอที่คุณต้องการ":"No favorites yet. Select “Add link” to save a video URL.";
-    else fl.innerHTML=state.favorites.map((x,i)=>`<div class="settingrow"><div style="min-width:0"><strong>${escapeHtml(x.title||x.url)}</strong><small>${escapeHtml(x.platform)} · <span style="color:#ff718a;cursor:pointer" onclick="playVideoInCurrentPage('${escapeAttr(x.url)}')">▶ เล่นในเว็บ</span></small></div><button class="btn secondary" data-delete-fav="${i}">ลบ</button></div>`).join("");
-  }
-  const hl=$("#historyList");
-  if(hl){
-    if(!state.history.length)hl.textContent=state.lang==="th"?"ยังไม่มีประวัติ":"No history yet.";
-    else hl.innerHTML=state.history.map(x=>`<div class="settingrow"><div style="min-width:0"><strong>${escapeHtml(x.title || (x.platform==="youtube"?"YouTube Shorts":"TikTok"))}</strong><small>${new Date(x.date).toLocaleString()} · ${escapeHtml(x.url)}</small></div><button class="btn secondary" onclick="playVideoInCurrentPage('${escapeAttr(x.url)}')">▶ เล่นในเว็บ</button></div>`).join("");
-  }
-}
-
-function escapeHtml(s){return String(s||'').replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
-function escapeAttr(s){return escapeHtml(s)}
-
-function openModal(title, contentHtml){
-  $("#modalTitle").textContent=title;
-  $("#modalBody").innerHTML=contentHtml;
-  $("#guideModal").classList.add("show");
-}
-function closeModal(){ $("#guideModal").classList.remove("show"); }
-
-$$("[data-page]").forEach(b=>b.addEventListener("click",()=>{if(b.dataset.platform)setPlatform(b.dataset.platform);navigate(b.dataset.page)}));
-$$("[data-mode]").forEach(b=>b.addEventListener("click",()=>setPlatform(b.dataset.mode)));
-$$("[data-choose]").forEach(b=>b.addEventListener("click",()=>{setPlatform(b.dataset.choose);navigate("watch")}));
-
-$("#theme").addEventListener("change",e=>setTheme(e.target.value));
-$("#themeSetting").addEventListener("change",e=>setTheme(e.target.value));
-$("#themeQuick").addEventListener("click",()=>setTheme(state.theme==="dark"?"light":"dark"));
-
-$("#lang").addEventListener("change",e=>setLang(e.target.value));
-$("#langSetting").addEventListener("change",e=>setLang(e.target.value));
-$("#langQuick").addEventListener("click",()=>setLang(state.lang==="th"?"en":"th"));
-
-$("#connectBtn").addEventListener("click",()=>navigate("admin"));
-$("#watchConnect").addEventListener("click",()=>navigate("admin"));
-
-$("#openOriginal").addEventListener("click",openOriginal);
-$("#watchOriginal").addEventListener("click",openOriginal);
-
-// URL Inputs Play Action
-$("#homePlayBtn").addEventListener("click", ()=>{
-  const url = $("#homeVideoUrl").value;
-  const parsed = parseVideoUrl(url);
-  if(parsed) renderPlayerContainer(parsed, "#homeViewer");
-  else toast("URL ไม่ถูกต้อง รองรับเฉพาะ YouTube Shorts และ TikTok");
-});
-
-$("#watchPlayBtn").addEventListener("click", ()=>{
-  const url = $("#watchVideoUrl").value;
-  const parsed = parseVideoUrl(url);
-  if(parsed) renderPlayerContainer(parsed, "#watchViewer");
-  else toast("URL ไม่ถูกต้อง รองรับเฉพาะ YouTube Shorts และ TikTok");
-});
-
-// Search functionality
-$("#searchForm").addEventListener("submit",e=>{
-  e.preventDefault();
-  const q=$("#searchInput").value.trim();
-  if(!q){toast(state.lang==="th"?"พิมพ์คำค้นหาก่อน":"Enter a search query first");return}
-
-  const parsed = parseVideoUrl(q);
-  if(parsed){
-    playVideoInCurrentPage(q);
-    return;
-  }
-
-  if(state.platform==="youtube"){
-    const targetResults = state.page === "home" ? "#homeSearchResults" : "#watchSearchResults";
-    const targetViewer = state.page === "home" ? "#homeViewer" : "#watchViewer";
-    searchYouTube(q, targetResults, targetViewer);
-  } else {
-    toast("TikTok ค้นหาผ่าน API จำเป็นต้องขอสิทธิ์ OAuth / Backend Proxy");
-  }
-});
-
-$("#addFavorite").addEventListener("click",()=>{
-  const url=prompt("วาง URL วิดีโอ YouTube Shorts หรือ TikTok:");
-  if(!url)return;
-  const parsed = parseVideoUrl(url);
-  if(!parsed){toast("รองรับลิงก์ YouTube Shorts / TikTok เท่านั้น");return}
-  const title=prompt("ชื่อเรียก (ไม่ใส่ก็ได้):")|| (parsed.platform === 'youtube' ? 'YouTube Short' : 'TikTok Video');
-  state.favorites.unshift({url, title, platform: parsed.platform});
-  localStorage.setItem("sv_favorites",JSON.stringify(state.favorites));
-  renderSaved();
-  toast("บันทึกลิงก์แล้วในเบราว์เซอร์นี้");
-});
-
-$("#favoritesList").addEventListener("click",e=>{
-  const b=e.target.closest("[data-delete-fav]");
-  if(!b)return;
-  state.favorites.splice(Number(b.dataset.deleteFav),1);
-  localStorage.setItem("sv_favorites",JSON.stringify(state.favorites));
-  renderSaved();
-});
-
-$("#clearHistory").addEventListener("click",()=>{
-  if(confirm("ล้างประวัติบนอุปกรณ์นี้?")){
-    state.history=[];
-    localStorage.setItem("sv_history","[]");
-    renderSaved();
-    toast("ล้างประวัติแล้ว");
-  }
-});
-
-$("#defaultPlatform").value=state.platform;
-$("#defaultPlatform").addEventListener("change",e=>setPlatform(e.target.value));
-
-$("#exportData").addEventListener("click",()=>{
-  const blob=new Blob([JSON.stringify({favorites:state.favorites,history:state.history,settings:{theme:state.theme,lang:state.lang,platform:state.platform}},null,2)],{type:"application/json"});
-  const a=document.createElement("a");
-  a.href=URL.createObjectURL(blob);
-  a.download="shortverse-data.json";
-  a.click();
-  URL.revokeObjectURL(a.href);
-});
-
-// Admin Panel Actions
-$("#saveKeysBtn").addEventListener("click",()=>{
-  state.ytKey=$("#ytKeyInput").value.trim();
-  state.ttKey=$("#ttKeyInput").value.trim();
-  localStorage.setItem("sv_yt_key",state.ytKey);
-  localStorage.setItem("sv_tt_key",state.ttKey);
-  updateStatusUI();
-  toast("บันทึก Key ลงใน LocalStorage เรียบร้อย");
-});
-
-$("#clearKeysBtn").addEventListener("click",()=>{
-  state.ytKey=""; state.ttKey="";
-  $("#ytKeyInput").value=""; $("#ttKeyInput").value="";
-  localStorage.removeItem("sv_yt_key");
-  localStorage.removeItem("sv_tt_key");
-  updateStatusUI();
-  toast("ลบ Key จากเบราว์เซอร์เรียบร้อย");
-});
-
-$("#saveBackendBtn").addEventListener("click",()=>{
-  state.backendUrl=$("#backendUrlInput").value.trim();
-  localStorage.setItem("sv_backend_url",state.backendUrl);
-  updateStatusUI();
-  toast("บันทึก Backend Endpoint แล้ว");
-});
-
-$("#guideYtBtn").addEventListener("click",()=>{
-  openModal("ขั้นตอนขอ YouTube Data API Key", `
-    <ol style="padding-left:18px">
-      <li>เข้าสู่ระบบ <a href="https://console.cloud.google.com/" target="_blank" style="color:var(--red)">Google Cloud Console</a></li>
-      <li>สร้าง Project ใหม่ หรือเลือก Project ที่มีอยู่</li>
-      <li>ไปที่เมนู <strong>APIs & Services &gt; Library</strong></li>
-      <li>ค้นหา <strong>YouTube Data API v3</strong> แล้วกด <strong>Enable</strong></li>
-      <li>ไปที่เมนู <strong>Credentials &gt; Create Credentials &gt; API Key</strong></li>
-      <li>คัดลอก Key นำมาวางที่ช่อง <code>YouTube Data API v3 Key</code> ในหน้านี้</li>
-    </ol>
-  `);
-});
-
-$("#guideTtBtn").addEventListener("click",()=>{
-  openModal("ขั้นตอนขอ TikTok API Key", `
-    <ol style="padding-left:18px">
-      <li>สมัครบัญชีนักพัฒนาที่ <a href="https://developers.tiktok.com/" target="_blank" style="color:var(--red)">TikTok Developers Portal</a></li>
-      <li>กดสร้าง App ใหม่ เลือกหมวดหมู่ <strong>Display API / Content Posting API</strong></li>
-      <li>เมื่ออนุมัติแล้ว คุณจะได้ <strong>Client Key</strong> และ <strong>Client Secret</strong></li>
-      <li>นำ <code>Client Key</code> มาวางในช่อง TikTok Client Key หน้านี้เพื่อเริ่มทดสอบ</li>
-    </ol>
-  `);
-});
-
-$("#modalClose").addEventListener("click",closeModal);
-$("#guideModal").addEventListener("click",e=>{ if(e.target===$("#guideModal")) closeModal(); });
-
-$("#ytKeyInput").value=state.ytKey;
-$("#ttKeyInput").value=state.ttKey;
-$("#backendUrlInput").value=state.backendUrl;
-
-setTheme(state.theme);
-setLang(state.lang);
-setPlatform(state.platform);
-navigate("home");
+(()=>{'use strict';const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];const STORE='snuffx-library-v1',SETTINGS='snuffx-settings-v1';let currentPage='home',activeItem=null,playerTimer=null;let items=[],collections=[],settings={theme:'dark'};
+const seedCollections=[{id:'col-action',name:'Action',description:'High intensity',color:'red'},{id:'col-horror',name:'Horror',description:'Into the unknown',color:'red'},{id:'col-scifi',name:'Sci-Fi',description:'Beyond reality',color:'blue'}];function load(){try{const d=JSON.parse(localStorage.getItem(STORE)||'{}');items=Array.isArray(d.items)?d.items:[];collections=Array.isArray(d.collections)?d.collections:seedCollections}catch(e){items=[];collections=seedCollections}try{settings={...settings,...JSON.parse(localStorage.getItem(SETTINGS)||'{}')}}catch(e){}applyTheme();}function save(){localStorage.setItem(STORE,JSON.stringify({items,collections}));localStorage.setItem(SETTINGS,JSON.stringify(settings))}function esc(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}function id(){return 'm'+Date.now().toString(36)+Math.random().toString(36).slice(2,7)}function toast(msg){const t=$('#toast');t.textContent=msg;t.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove('show'),2600)}function applyTheme(){document.body.classList.toggle('light',settings.theme==='light');$('#themeSwitch').checked=settings.theme!=='light'}function setTheme(){settings.theme=settings.theme==='dark'?'light':'dark';applyTheme();save()}
+function classify(raw){let u;try{u=new URL(raw)}catch(e){return {kind:'invalid',label:'Invalid URL',url:raw}}if(!/^https?:$/.test(u.protocol))return {kind:'invalid',label:'Unsupported URL protocol',url:u.href};const host=u.hostname.toLowerCase().replace(/^www\./,'');const path=u.pathname.toLowerCase();if(/\.(mp4|webm|ogv|ogg)(\?.*)?$/.test(path))return {kind:'file',label:'Direct video',url:u.href};if(/\.m3u8$/.test(path))return {kind:'hls',label:'HLS stream',url:u.href};if(/\.mpd$/.test(path))return {kind:'dash',label:'DASH stream',url:u.href};if(host==='x.com'||host==='twitter.com'||host.endsWith('.x.com')||host.endsWith('.twitter.com'))return {kind:'x',label:'X / Twitter',url:u.href};if(host==='vk.com'||host.endsWith('.vk.com')||host==='vkvideo.ru'||host.endsWith('.vkvideo.ru')||host==='vk.ru'||host.endsWith('.vk.ru'))return {kind:'vk',label:'VK Video',url:u.href};if(host==='youtube.com'||host==='youtu.be'||host.endsWith('.youtube.com'))return {kind:'youtube',label:'YouTube',url:u.href};if(host==='vimeo.com'||host.endsWith('.vimeo.com'))return {kind:'vimeo',label:'Vimeo',url:u.href};return {kind:'web',label:'Website / player unknown',url:u.href}}
+function normalizeUrl(raw){raw=raw.trim();if(!/^https?:\/\//i.test(raw))raw='https://'+raw;return raw}function titleFromUrl(url){try{const u=new URL(url);return decodeURIComponent(u.pathname.split('/').filter(Boolean).pop()||u.hostname).replace(/\.(mp4|webm|ogv|m3u8|mpd)$/i,'').replace(/[-_]/g,' ').slice(0,90)||u.hostname}catch(e){return 'Untitled video'}}function card(item){const prog=item.duration&&item.position?Math.min(100,Math.round(item.position/item.duration*100)):0;return `<article class="movie" data-open="${esc(item.id)}"><div class="poster">${item.poster?`<img loading="lazy" src="${esc(item.poster)}" alt="" onerror="this.remove()">`:''}<div class="fallback">${esc((item.title||'SNUFF X').slice(0,22).toUpperCase())}</div><span class="tag">${esc((item.sourceType||'web').toUpperCase())}</span></div><div class="movie-info"><div class="movie-title" title="${esc(item.title)}">${esc(item.title)}</div><div class="movie-sub"><span>${esc(item.category||'Unsorted')}</span><span>${prog?prog+'%':'OPEN ↗'}</span></div><div style="display:flex;gap:6px;margin-top:10px"><button class="btn" data-edit-item="${esc(item.id)}" style="flex:1;padding:7px">✎ Edit</button><button class="btn" data-delete-item="${esc(item.id)}" style="flex:1;color:#ff9aa7;padding:7px">✕ Delete</button></div></div></article>`}function empty(msg='Your private library is empty.',desc='Add a public video URL to start building your collection.'){return `<div class="empty"><strong>${esc(msg)}</strong>${esc(desc)}<div style="margin-top:15px"><button class="btn primary" data-go="add">＋ Add URL</button></div></div>`}function header(title,desc){return `<h1 class="page-title">${esc(title)}</h1><div class="page-intro">${esc(desc)}</div>`}function movieGrid(arr){return `<div class="grid">${arr.length?arr.map(card).join(''):empty()}</div>`}function sidePanels(){const recent=items.filter(x=>x.position>0).sort((a,b)=>(b.updatedAt||0)-(a.updatedAt||0)).slice(0,3);return `<aside class="right-col"><div class="panel"><div class="quote">“Some stories<br>are better<br>kept private.”</div><h3>Quick Access</h3><div class="quick" data-go="library"><div class="quick-icon">▣</div><div>My Library<small>All your saved videos</small></div></div><div class="quick" data-go="collections"><div class="quick-icon">♧</div><div>Collections<small>Organize your favorites</small></div></div><div class="quick" data-go="history"><div class="quick-icon">◴</div><div>Watch History<small>Continue where you left off</small></div></div><div class="quick" data-go="admin"><div class="quick-icon">⚙</div><div>Settings & Admin<small>Manage your private library</small></div></div></div><div class="panel"><h3>Continue Watching <span style="float:right;color:var(--muted)">${recent.length}</span></h3>${recent.length?recent.map(x=>`<div class="history-item" data-open="${esc(x.id)}"><div class="mini-poster">${x.poster?`<img src="${esc(x.poster)}" alt="" onerror="this.remove()">`:'▶'}</div><div class="history-text"><div>${esc(x.title)}</div><div class="progress"><i style="width:${x.duration?Math.min(100,x.position/x.duration*100):10}%"></i></div><div class="subtle" style="margin-top:6px">${x.duration?Math.round(x.position/x.duration*100)+'% watched':'Resume if supported'}</div></div></div>`).join(''):'<div class="subtle">Your progress will appear here when supported.</div>'}</div></aside>`}
+function home(){const recent=items.slice().sort((a,b)=>(b.createdAt||0)-(a.createdAt||0)).slice(0,6),continueItems=items.filter(x=>x.position>0).sort((a,b)=>(b.updatedAt||0)-(a.updatedAt||0)).slice(0,6);return `<section class="hero"><div class="hero-copy"><div class="eyebrow">YOUR PRIVATE CINEMA / NO. 001</div><h1>ENTER THE<br>SILENT VOID</h1><p>A private vault for the stories you keep. Save links, build collections, and return to where you left off.</p><div class="actions"><button class="btn primary" data-go="library">▣ Explore Library</button><button class="btn ghost" data-go="add">＋ Add a URL</button></div></div></section><div class="layout"><div><section class="section"><div class="section-head"><h2>Recently Added</h2><button class="btn" data-go="library">View Library →</button></div><div class="grid">${recent.length?recent.map(card).join(''):empty()}</div></section><section class="section"><div class="section-head"><h2>Continue Watching</h2><button class="btn" data-go="history">View History →</button></div><div class="grid">${continueItems.length?continueItems.map(card).join(''):empty('Nothing to resume yet.','Progress is saved only when the source exposes playback time.')}</div></section><section class="section"><div class="section-head"><h2>My Collections</h2><button class="btn" data-go="collections">Manage →</button></div><div class="collection-grid">${collections.slice(0,4).map(c=>`<div class="collection-card" data-collection="${esc(c.id)}"><b>${esc(c.name)}</b><span>${items.filter(i=>i.collectionIds?.includes(c.id)).length} items · Open collection →</span></div>`).join('')}<div class="collection-card" data-action="new-collection"><b>＋ Create Collection</b><span>Organize your library</span></div></div></section></div>${sidePanels()}</div>`}
+function library(){return `${header('My Library','Every saved source in one private place. Playback availability depends on the source website and browser support.')}<div class="toolbar"><input id="libSearch" placeholder="Search title or URL…"><select id="libType"><option value="">All sources</option><option value="x">X / Twitter</option><option value="vk">VK Video</option><option value="youtube">YouTube</option><option value="vimeo">Vimeo</option><option value="file">Direct video</option><option value="hls">HLS</option><option value="dash">DASH</option><option value="web">Website</option></select><select id="libCategory"><option value="">All categories</option>${[...new Set(items.map(x=>x.category).filter(Boolean))].map(x=>`<option>${esc(x)}</option>`).join('')}</select><button class="btn primary" data-go="add">＋ Add URL</button></div><div id="libraryGrid">${movieGrid(items.slice().sort((a,b)=>(b.createdAt||0)-(a.createdAt||0)))}</div>`}
+function addPage(){return `${header('Add a Source','Save a source URL to your private library. YouTube and other websites open on their original site; direct video files may play here.')}<div class="form-card"><form id="addForm"><div class="field"><label for="sourceUrl">Video / Website URL *</label><input id="sourceUrl" type="url" required placeholder="https://youtube.com/shorts/... or direct video URL"></div><div id="urlPreview" class="notice" style="display:none"></div><div class="field"><label for="sourceTitle">Title</label><input id="sourceTitle" placeholder="Auto-filled from URL if blank"></div><div class="field"><label for="sourcePoster">Poster image URL (optional)</label><input id="sourcePoster" type="url" placeholder="Paste poster image URL if available"><small id="posterStatus" class="subtle">Poster lookup may not work for every website. You can enter a URL manually.</small></div><div class="field"><label for="sourceCategory">Category</label><input id="sourceCategory" placeholder="Movie, Horror, Series…"></div><div class="field"><label for="sourceCollection">Add to collection</label><select id="sourceCollection"><option value="">No collection</option>${collections.map(c=>`<option value="${esc(c.id)}">${esc(c.name)}</option>`).join('')}</select></div><div class="field"><label for="sourceNotes">Private notes (optional)</label><textarea id="sourceNotes" placeholder="Personal notes about this item…"></textarea></div><div class="notice">This app stores data in this browser only. It does not sync across devices.</div><div class="actions"><button class="btn primary" type="submit">＋ Save to Library</button><button class="btn" type="reset" id="resetAdd">Clear</button></div></form></div>`}
+function collectionsPage(){return `${header('Collections','Create your own shelves and group saved sources.')}<div class="toolbar"><button class="btn primary" data-action="new-collection">＋ New Collection</button></div><div class="collection-grid">${collections.map(c=>`<div class="collection-card" data-collection="${esc(c.id)}"><b>${esc(c.name)}</b><span>${items.filter(i=>i.collectionIds?.includes(c.id)).length} items · ${esc(c.description||'Personal collection')}</span><div style="margin-top:14px"><button class="btn" data-edit-collection="${esc(c.id)}">Edit</button></div></div>`).join('')||empty('No collections yet.','Create a collection to organize your library.')}</div>`}
+function historyPage(){const watched=items.filter(x=>x.position>0).sort((a,b)=>(b.updatedAt||0)-(a.updatedAt||0));return `${header('Watch History','Playback progress is available only when the player exposes its current time. Embedded third-party players may not support resume.')}<div class="grid">${watched.length?watched.map(card).join(''):empty('No watch history yet.','Play a compatible direct video file to start tracking progress.')}</div>`}
+function adminPage(){return `${header('Admin / Settings','Manage your local private library. This demo has no server-side authentication; do not expose it publicly with sensitive content.')}<div class="collection-grid"><div class="panel"><h3>Library Overview</h3><div style="font:30px Cinzel;color:var(--red)">${items.length}</div><div class="subtle">Saved sources</div><div style="font:24px Cinzel;margin-top:16px">${collections.length}</div><div class="subtle">Collections</div></div><div class="panel"><h3>Data Backup</h3><p class="subtle">Export your library as JSON or restore a previously exported backup.</p><button class="btn primary" id="exportBtn">↓ Export JSON</button><div class="field"><label>Import JSON backup</label><input id="importFile" type="file" accept="application/json,.json"></div></div><div class="panel"><h3>Appearance</h3><p class="subtle">Switch between dark and light themes.</p><button class="btn" id="adminTheme">☼ Toggle Theme</button></div><div class="panel"><h3>Storage</h3><p class="subtle">Data is stored in this browser only. Clearing browser storage can remove it.</p><button class="btn" id="clearProgress">Clear watch progress</button><button class="btn" id="deleteAll" style="margin-top:8px;color:#ff9aa7">Delete all library items</button></div></div><div class="notice">Production security requirement: a real multi-device deployment needs a backend, secure authentication, authorization on every API route, and private object storage. This single-file app does not implement those server components.</div>`}
+function render(){const v=$('#view');if(playerTimer){clearInterval(playerTimer);playerTimer=null}const map={home,library,add:addPage,collections:collectionsPage,history:historyPage,admin:adminPage};v.innerHTML=(map[currentPage]||home)();$$('[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===currentPage));if(currentPage==='library')bindLibraryFilters();if(currentPage==='add')bindAddForm();if(currentPage==='admin')bindAdmin()}
+function go(page){currentPage=page;render();window.scrollTo({top:0,behavior:'smooth'})}function bindLibraryFilters(){const q=$('#libSearch'),t=$('#libType'),c=$('#libCategory');function filter(){const s=q.value.toLowerCase();const arr=items.filter(x=>(!s||(x.title+' '+x.url).toLowerCase().includes(s))&&(!t.value||x.sourceType===t.value)&&(!c.value||x.category===c.value));$('#libraryGrid').innerHTML=movieGrid(arr)}q.addEventListener('input',filter);t.addEventListener('change',filter);c.addEventListener('change',filter)}
+function bindAddForm(){const url=$('#sourceUrl'),preview=$('#urlPreview'),title=$('#sourceTitle'),poster=$('#sourcePoster'),posterStatus=$('#posterStatus');let posterTimer=null,lastPosterLookup='';async function autoPoster(raw){const normalized=normalizeUrl(raw);if(!normalized||normalized===lastPosterLookup||poster.value.trim())return;lastPosterLookup=normalized;posterStatus.textContent='Looking for a public poster/thumbnail…';try{const response=await fetch('https://api.microlink.io/?url='+encodeURIComponent(normalized)+'&meta=false',{headers:{'Accept':'application/json'}});if(!response.ok)throw new Error();const result=await response.json(),imageUrl=result?.data?.image?.url;if(imageUrl&&/^https?:\/\//i.test(imageUrl)&&!poster.value.trim()&&normalizeUrl(url.value)===normalized){poster.value=imageUrl;posterStatus.textContent='Poster found automatically. You can replace it.';return}throw new Error()}catch(err){posterStatus.textContent='No public poster found. You can paste an image URL manually.'}}url.addEventListener('input',()=>{if(!url.value){preview.style.display='none';return}const c=classify(normalizeUrl(url.value));preview.style.display='block';preview.className='notice';preview.innerHTML=`Detected type: <b>${esc(c.label)}</b>. Websites such as YouTube open on the original site; direct video URLs may play here.`;if(!title.value)title.value=titleFromUrl(c.url);clearTimeout(posterTimer);posterTimer=setTimeout(()=>autoPoster(url.value),900)});poster.addEventListener('input',()=>{if(poster.value.trim())posterStatus.textContent='Using the poster URL you entered.'});$('#addForm').addEventListener('submit',e=>{e.preventDefault();const c=classify(normalizeUrl(url.value));if(c.kind==='invalid'){toast('Please enter a valid URL');return}const collection=$('#sourceCollection').value;items.unshift({id:id(),url:c.url,sourceMode:'url',title:title.value.trim()||titleFromUrl(c.url),poster:poster.value.trim(),category:$('#sourceCategory').value.trim()||'Unsorted',notes:$('#sourceNotes').value.trim(),sourceType:c.kind,sourceLabel:c.label,collectionIds:collection?[collection]:[],createdAt:Date.now(),position:0,duration:0});save();toast('Saved to your local library');go('library')});$('#resetAdd').addEventListener('click',()=>setTimeout(()=>{preview.style.display='none';posterStatus.textContent='Poster lookup may not work for every website.'},0))}
+function openItem(itemId){const item=items.find(x=>x.id===itemId);if(!item)return;activeItem=item;currentPage='watch';renderWatch(item);$$('[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page==='library'))}function renderWatch(item){if(playerTimer){clearInterval(playerTimer);playerTimer=null}const c=classify(item.url);$('#view').innerHTML=`${header('Now Watching','Source: '+(item.sourceLabel||c.label)+' · Playback support depends on the original website.')}<div class="player-wrap"><div class="player-stage" id="playerStage"><div class="player-placeholder"><div class="big">▶</div><h3>${esc(item.title)}</h3><p>Choose the source player to start. Playback will be attempted using the detected URL type.</p><button class="btn primary" id="startPlayer">▶ Try to Play</button><button class="btn" id="openSource">↗ Open Source</button></div></div><div class="player-meta"><strong>${esc(item.title)}</strong><span class="status" id="playStatus">NOT STARTED</span><button class="btn" id="editItem">✎ Edit</button><button class="btn" id="removeItem" style="color:#ff9aa7">Delete</button></div></div><div id="playerNotice" class="notice">No playback has been verified yet. Selecting “Try to Play” will attempt the supported method; a successful load is not guaranteed.</div><div class="section"><div class="section-head"><h2>Source Details</h2></div><div class="form-card"><div class="field"><label>Original URL</label><input readonly value="${esc(item.url)}" id="sourceUrlReadonly"></div><div class="field"><label>Category</label><input readonly value="${esc(item.category||'Unsorted')}"></div><div class="field"><label>Private notes</label><textarea readonly>${esc(item.notes||'No notes')}</textarea></div><div class="actions"><button class="btn" id="copySource">Copy URL</button><button class="btn" id="addCollectionToItem">＋ Add to Collection</button></div></div></div>`;
+$('#openSource').onclick=()=>window.open(item.url,'_blank','noopener,noreferrer');$('#startPlayer').onclick=()=>startPlayback(item,c);$('#editItem').onclick=()=>editItem(item);$('#removeItem').onclick=()=>{if(confirm('Delete this item from your local library?')){items=items.filter(x=>x.id!==item.id);save();go('library')}};$('#copySource').onclick=()=>navigator.clipboard?.writeText(item.url).then(()=>toast('URL copied')).catch(()=>toast('Copy not available in this browser'));$('#addCollectionToItem').onclick=()=>{showModal('Add to Collection',`<div class="field"><label>Choose collection</label><select id="chooseCollection">${collections.map(c=>`<option value="${esc(c.id)}">${esc(c.name)}</option>`).join('')}</select></div><button class="btn primary" id="saveCollection">Add</button>`);$('#saveCollection').onclick=()=>{const cid=$('#chooseCollection').value;if(!cid)return;item.collectionIds=item.collectionIds||[];if(!item.collectionIds.includes(cid))item.collectionIds.push(cid);save();closeModal();toast('Collection updated')}}}
+function startPlayback(item,c){const stage=$('#playerStage'),status=$('#playStatus'),notice=$('#playerNotice');stage.innerHTML='';if(['file','hls','dash'].includes(c.kind)){status.className='status';status.textContent='LOADING';notice.className='notice';notice.textContent='Loading direct video URL. Playback depends on browser and source-server support.';const video=document.createElement('video');video.controls=true;video.playsInline=true;video.preload='metadata';video.style.cssText='width:100%;height:100%;position:absolute;inset:0;object-fit:contain';stage.appendChild(video);if(c.kind==='file')video.src=c.url;else if(c.kind==='hls'&&video.canPlayType('application/vnd.apple.mpegurl'))video.src=c.url;else{const script=document.createElement('script');script.src=c.kind==='hls'?'https://cdn.jsdelivr.net/npm/hls.js@1.5.17/dist/hls.min.js':'https://cdn.dashjs.org/latest/dash.all.min.js';script.onload=()=>{if(c.kind==='hls'&&window.Hls&&window.Hls.isSupported()){const h=new window.Hls();h.loadSource(c.url);h.attachMedia(video);h.on(window.Hls.Events.ERROR,(_,d)=>{if(d.fatal)fail('HLS playback failed. The source may block CORS or be unavailable.')})}else if(c.kind==='dash'&&window.dashjs){const p=window.dashjs.MediaPlayer().create();p.initialize(video,c.url,false);p.on(window.dashjs.MediaPlayer.events.ERROR,()=>fail('DASH playback failed. The source may require authentication or CORS access.'))}else fail('This browser cannot play this stream format.')};script.onerror=()=>fail('Could not load the playback library. Check internet access.');document.head.appendChild(script)}function fail(msg){status.textContent='OPEN SOURCE';status.className='status warn';notice.className='notice bad';notice.textContent=msg+' Use Open Source to visit the original website.'}video.addEventListener('loadedmetadata',()=>{status.textContent='MEDIA LOADED';status.className='status ok';item.duration=Number.isFinite(video.duration)?video.duration:0;if(item.position>0&&item.position<item.duration)video.currentTime=item.position;save()});video.addEventListener('playing',()=>{status.textContent='PLAYING';status.className='status ok';notice.className='notice good';notice.textContent='Direct video playback started.'});video.addEventListener('timeupdate',()=>{item.position=video.currentTime;item.duration=Number.isFinite(video.duration)?video.duration:item.duration;item.updatedAt=Date.now();if(!playerTimer)playerTimer=setInterval(save,5000)});video.addEventListener('ended',()=>{item.position=0;save();status.textContent='COMPLETED'});video.addEventListener('error',()=>fail('The browser could not load this video URL. Check the URL, codec, CORS, or source availability.'));return}status.className='status warn';status.textContent='OPEN SOURCE';stage.innerHTML=`<div class="player-placeholder"><div class="big">↗</div><h3>Open on the original website</h3><p>SNUFF X no longer embeds third-party players. Open the saved source in a new browser tab.</p><button class="btn primary" id="openOriginalNow">↗ Open Original Source</button></div>`;$('#openOriginalNow').onclick=()=>window.open(item.url,'_blank','noopener,noreferrer');notice.className='notice';notice.textContent='Third-party embeds are disabled. Direct video URLs can still play here when the browser and server support them.'}
+function editItem(item){showModal('Edit Library Item',`<form id="editForm"><div class="field"><label>Title *</label><input id="editTitle" value="${esc(item.title)}" required></div><div class="field"><label>Source URL *</label><input id="editUrl" type="url" value="${esc(item.url)}" required></div><div class="field"><label>Poster image URL</label><input id="editPoster" type="url" value="${esc(item.poster||'')}"></div><div class="field"><label>Category</label><input id="editCategory" value="${esc(item.category||'')}"></div><div class="field"><label>Collection</label><select id="editCollection"><option value="">No collection</option>${collections.map(c=>`<option value="${esc(c.id)}" ${(item.collectionIds||[]).includes(c.id)?'selected':''}>${esc(c.name)}</option>`).join('')}</select></div><div class="field"><label>Private notes</label><textarea id="editNotes">${esc(item.notes||'')}</textarea></div><div class="actions"><button class="btn primary" type="submit">Save Changes</button></div></form>`);$('#editForm').onsubmit=e=>{e.preventDefault();const nextUrl=normalizeUrl($('#editUrl').value);const parsed=classify(nextUrl);if(parsed.kind==='invalid'){toast('Please enter a valid source URL');return}item.title=$('#editTitle').value.trim();item.url=parsed.url;item.poster=$('#editPoster').value.trim();item.category=$('#editCategory').value.trim()||'Unsorted';item.notes=$('#editNotes').value.trim();item.sourceType=parsed.kind;item.sourceLabel=parsed.label;item.sourceMode='url';delete item.embedUrl;const cid=$('#editCollection').value;item.collectionIds=cid?[cid]:[];save();closeModal();if(currentPage==='watch')renderWatch(item);else render();toast('Item updated') }}
+function showModal(title,body){$('#modalTitle').textContent=title;$('#modalBody').innerHTML=body;$('#modalBackdrop').classList.add('open')}function closeModal(){$('#modalBackdrop').classList.remove('open')}function newCollection(existing){showModal(existing?'Edit Collection':'New Collection',`<form id="collectionForm"><div class="field"><label>Name *</label><input id="colName" required value="${esc(existing?.name||'')}"></div><div class="field"><label>Description</label><input id="colDesc" value="${esc(existing?.description||'')}"></div><div class="actions"><button class="btn primary" type="submit">Save Collection</button>${existing?'<button class="btn" type="button" id="deleteCollection" style="color:#ff9aa7">Delete</button>':''}</div></form>`);$('#collectionForm').onsubmit=e=>{e.preventDefault();const name=$('#colName').value.trim();if(!name)return;if(existing){existing.name=name;existing.description=$('#colDesc').value.trim()}else collections.push({id:id(),name,description:$('#colDesc').value.trim()});save();closeModal();render();toast('Collection saved')};if(existing)$('#deleteCollection').onclick=()=>{if(confirm('Delete collection? Items will remain in your library.')){collections=collections.filter(c=>c.id!==existing.id);items.forEach(i=>i.collectionIds=(i.collectionIds||[]).filter(x=>x!==existing.id));save();closeModal();render()}}}
+function bindAdmin(){$('#adminTheme').onclick=setTheme;$('#exportBtn').onclick=()=>{const blob=new Blob([JSON.stringify({version:1,exportedAt:new Date().toISOString(),items,collections},null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='snuff-x-library-backup.json';a.click();URL.revokeObjectURL(a.href);toast('Backup exported')};$('#importFile').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const d=JSON.parse(await f.text());if(!Array.isArray(d.items)||!Array.isArray(d.collections))throw new Error('Invalid backup');if(confirm('Replace the current local library with this backup?')){items=d.items;collections=d.collections;save();render();toast('Backup imported')}}catch(err){toast('Could not import: invalid JSON backup')}e.target.value=''};$('#clearProgress').onclick=()=>{if(confirm('Clear all saved watch progress?')){items.forEach(i=>{i.position=0;i.duration=0;i.updatedAt=0});save();render();toast('Watch progress cleared')}};$('#deleteAll').onclick=()=>{if(confirm('Permanently remove all items from this browser library? Export a backup first if needed.')){items=[];save();render();toast('Library cleared')}}}
+function showCollection(cid){const c=collections.find(x=>x.id===cid);if(!c)return;const arr=items.filter(i=>(i.collectionIds||[]).includes(cid));$('#view').innerHTML=`<button class="btn" data-go="collections">← Collections</button>${header(c.name,c.description||'Your private collection')}<div class="toolbar"><button class="btn" data-edit-collection="${esc(c.id)}">✎ Edit Collection</button></div>${movieGrid(arr)}`}
+function handleClick(e){const edit=e.target.closest('[data-edit-item]');if(edit){e.preventDefault();e.stopPropagation();const target=items.find(x=>x.id===edit.dataset.editItem);if(target)editItem(target);return}const del=e.target.closest('[data-delete-item]');if(del){e.preventDefault();e.stopPropagation();const target=items.find(x=>x.id===del.dataset.deleteItem);if(target&&confirm('Delete “'+target.title+'” from your local library?')){items=items.filter(x=>x.id!==target.id);if(activeItem&&activeItem.id===target.id)activeItem=null;save();render();toast('Video deleted from library')}return}const page=e.target.closest('[data-page]');if(page){go(page.dataset.page);return}const goEl=e.target.closest('[data-go]');if(goEl){go(goEl.dataset.go);return}const open=e.target.closest('[data-open]');if(open){openItem(open.dataset.open);return}const col=e.target.closest('[data-collection]');if(col){showCollection(col.dataset.collection);return}const editCol=e.target.closest('[data-edit-collection]');if(editCol){newCollection(collections.find(c=>c.id===editCol.dataset.editCollection));return}const act=e.target.closest('[data-action]');if(act?.dataset.action==='new-collection'){newCollection();return}}
+document.addEventListener('click',handleClick);$('#themeSwitch').addEventListener('change',setTheme);$('#themeQuick').onclick=setTheme;$('#fullBtn').onclick=()=>{if(!document.fullscreenElement)document.documentElement.requestFullscreen?.();else document.exitFullscreen?.()};$('#modalClose').onclick=closeModal;$('#modalBackdrop').addEventListener('click',e=>{if(e.target.id==='modalBackdrop')closeModal()});$('#globalSearch').addEventListener('keydown',e=>{if(e.key==='Enter'){const value=e.target.value.trim();if(/^https?:\/\//i.test(value)||value.includes('.')){$('#globalSearch').value='';go('add');setTimeout(()=>{$('#sourceUrl').value=value;$('#sourceUrl').dispatchEvent(new Event('input'));},0)}else{go('library');setTimeout(()=>{const q=$('#libSearch');if(q){q.value=value;q.dispatchEvent(new Event('input'))}},0)}}});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();$('#globalSearch').focus()}});load();render();
+})();
 </script>
-</body>
-</html>
+<script>
+(function(){
+  const USERNAME='admin';
+  const PASSWORD='0984038039';
+  const screen=document.getElementById('loginScreen');
+  const form=document.getElementById('loginForm');
+  const error=document.getElementById('loginError');
+  function unlock(){document.body.classList.add('authenticated');screen.hidden=true;}
+  if(sessionStorage.getItem('snuffx_session')==='unlocked') unlock();
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    const user=document.getElementById('loginUser').value.trim();
+    const pass=document.getElementById('loginPass').value;
+    if(user===USERNAME && pass===PASSWORD){
+      sessionStorage.setItem('snuffx_session','unlocked');
+      error.textContent=''; unlock();
+    }else{
+      error.textContent='Invalid username or password. Please try again.';
+      document.getElementById('loginPass').value='';
+      document.getElementById('loginPass').focus();
+    }
+  });
+})();
+</script></body></html>
